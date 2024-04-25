@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+    <link rel="icon" href="../imges/logo.png">
+    <link rel="apple-touch-icon" href="../imges/logo.png">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/all.css">
+    <title> وجهني - الملف الشخصي </title>
+</head>
+
+<body>
+    <!-- loder -->
+    <div id="preloader" class="preloader d-flex justify-content-center"><img src="../imges/loading5.gif" alt="loading">
+    </div>
+    <!-- ----- -->
+    <!-- start nav -->
+    <nav class="navbar navbar-expand-lg py-0 z-3 wow fadeInDown" data-wow-duration="2s">
+        <div class="container">
+            <a class="navbar-brand logo py-0" href="#"> <img src="../imges/logo.png" alt="logo"> </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./literary.html"> مجالات تجاره </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Scientific.html"> مجالات حاسبات </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./general.html"> مجالات عامة </a>
+                    </li>
+                    <div class="d-flex user-container" id="nav-sign">
+                        <li class="nav-item">
+                            <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link log-in" href="#" data-bs-toggle="modal"
+                                data-bs-target="#logInModal">تسجيل الدخول</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- start sidbar menu -->
+    <div class="sidbar" id="sidbar">
+        <div class="container">
+            <i onclick="closeSidbar()" class="p-2 fs-4 fa-regular fa-circle-xmark" style="cursor: pointer;"></i>
+            <div class="sidbar-menu">
+                <a href="./profile.html" onclick="return false;"> الملف الشخصي </a>
+                <a href="./settings.html"> اعدادات الحساب </a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"> تسجيل الخروج </a>
+            </div>
+        </div>
+    </div>
+    <!-- end sidbar menu -->
+    <!-- end nav -->
+
+
+    <div id="success-alert" class="show fade"></div>
+
+    <!-- start profile -->
+    <section class="profile">
+        <div class="container">
+            <div class="pro">
+                <h1 class="wow fadeInRight section-title" data-wow-duration="2s"> الملف الشخصي </h1>
+
+                <div class="profile-container">
+                    <div class="profile-info" id="profile">
+                        
+                    </div>
+                    <div class="row" style="width: 100%;">
+
+                        <div class="profile-btn">
+                            <button class="btn btn-danger col-5" data-bs-toggle="modal" data-bs-target="#logoutModal" style="width: 40%;">تسجيل
+                                الخروج</button>
+                            <a href="./settings.html" class="btn settings col-5" style="width: 40%;"> اعدادات الحساب </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- start footer -->
+    <footer class="footer text-center" dir="rtl">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 footer-links text-center wow fadeInRight" data-wow-duration="1s"
+                        data-wow-offset="200">
+                        <h4>روابط سريعة</h4>
+                        <ul style="display: inline-block;">
+                            <li><i class="fa-solid fa-chevron-right"></i> <a href="#"> تخصص برمجه </a></li>
+                            <li><i class="fa-solid fa-chevron-right"></i> <a href="#"> تخصص شبكات </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="about-us col-lg-6 col-md-6 wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">
+                        <h4> عن وجهني </h4>
+                        <p>هو موقع يختص في التوجيه الوظيفي حيث يساعد الطالب في اختيار العمل ما بعد الجامعه الأنسب له عبر
+                            تزويده بكل
+                            ما
+                            أمكن من نصائح ومعلومات عن جميع التخصصات الموجوده في سوق العمل داخل مصر .
+                        </p>
+                        <div class="social-icons">
+                            <a href="#"> <i class="fa-brands fa-youtube"></i> </a>
+                            <a href="#"> <i class="fa-brands fa-facebook"></i> </a>
+                            <a href="#"> <i class="fa-brands fa-square-instagram"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 copyright text-center">
+                    <p class="border-top"> جميع الحقوق محفوظة 2023 © وجهني </p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </footer>
+
+    <!-- start modals -->
+    <section class="login-container m-auto modal fade" id="logInModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div>
+                    <i class="close-btn fa-solid fa-xmark p-3" data-bs-dismiss="modal" aria-label="Close"></i>
+                </div>
+                <div class="Login">
+                    <h1> تسجيل الدخول</h1>
+                    <form>
+                        <div class="emall-container mb-4">
+                            <label> البريد الالكتروني </label>
+                            <input id="log-in-email" class="emall" type="text" placeholder="ادخل بريدك الالكتروني">
+                        </div>
+                        <div class="bassword-container mb-5">
+                            <label> الرمز السري</label>
+                            <input id="log-in-password" class="bassword" type="password"
+                                placeholder=" ادخل الرمز السري">
+                        </div>
+                        <div class="submit-container">
+                            <a onclick="loginBtn()" class="btn submit-btn"> تسجيل الدخول </a>
+                        </div>
+                        <br>
+                        <div class="new-user">
+                            <p> ليس لديك حساب؟ <a href="./pages/signup.html"> انشاء حساب </a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- log out modal -->
+    <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
+                </div>
+                <div class="modal-body">
+                    <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+                    <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modals -->
+    <!-- end footer -->
+    <script src="../js/axios.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/pegesjs/profile.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>

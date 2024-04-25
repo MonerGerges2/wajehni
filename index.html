@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+  <link rel="icon" href="./imges/logo.png">
+  <link rel="apple-touch-icon" href="./imges/logo.png">
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/animate.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <title> وجهني - الصفحة الرئيسية </title>
+</head>
+
+<body>
+  <!-- loder -->
+  <div id="preloader" class="preloader d-flex justify-content-center"><img src="./imges/loading5.gif" alt="loading">
+  </div>
+  <!-- ----- -->
+  <!-- start nav -->
+  <nav class="navbar navbar-expand-lg py-0 z-3 wow fadeInDown" data-wow-duration="2s">
+    <div class="container">
+      <a class="navbar-brand logo py-0" href="#"> <img src="./imges/logo.png" alt="logo"> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pages/literary.html"> مجالات تجاره </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pages/Scientific.html"> مجالات حاسبات </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pages/general.html"> مجالات عامة </a>
+          </li>
+          <div class="d-flex user-container" id="nav-sign">
+            <li class="nav-item">
+              <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link log-in" href="#" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- start sidbar menu -->
+  <div class="sidbar" id="sidbar">
+    <div class="container">
+      <i onclick="closeSidbar()" class="p-2 fs-4 fa-regular fa-circle-xmark" style="cursor: pointer;"></i>
+      <div class="sidbar-menu">
+        <a href="./pages/profile.html"> الملف الشخصي </a>
+        <a href="./pages/settings.html"> اعدادات الحساب </a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"> تسجيل الخروج </a>
+      </div>
+    </div>
+  </div>
+  <!-- end sidbar menu -->
+  <!-- end nav -->
+
+  
+  <div id="success-alert" class="show fade"></div>
+
+  <!-- start landing -->
+  <section class="landing">
+    <div class="container m-auto">
+      <div class="row land1">
+        <div class="landing-text col-7 wow fadeInUp" data-wow-duration="2s">
+          <h1> اول مــوقــع لتأهيل الطلاب لســــوق العمل في مــصــــر </h1>
+        </div>
+        <div class="landing-img col-5 wow fadeInUp" data-wow-duration="2s">
+
+        </div>
+      </div>
+      <div class=" landing-text2 wow fadeInUp" data-wow-duration="2s">
+        <h2>موقع وجهني </h2>
+        <p>هو موقع يختص في التوجيه الوظيفي حيث يساعد الطالب في اختيار العمل ما بعد الجامعه الأنسب له عبر تزويده بكل ما
+          أمكن من نصائح ومعلومات عن جميع التخصصات الموجوده في سوق العمل داخل مصر .
+        </p>
+        <a href="#search" class="angle-down-icon">
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- start landing -->
+  <!-- start search -->
+  <section class="search wow fadeInUp" id="search" data-wow-duration="2s" data-wow-offset="150">
+    <div class="container">
+      <div class="row search-container">
+        <div class="form col-lg-5 col-sm-12">
+          <p> الشعبه </p>
+          <select id="division" class="form-select " aria-label="Default select example">
+            <option value="1">مجالات حاسبات</option>
+            <option value="2">مجالات تجاره</option>
+            <option value="3">مجالات عامة</option>
+          </select>
+        </div>
+        <div class="form col-lg-5 col-sm-12">
+          <p> التخصص </p>
+          <select id="Specialization" class="form-select " aria-label="Default select example">
+            <option class="optionn" value="1">One</option>
+            <option class="optionn" value="2">Two</option>
+            <option class="optionn" value="3">Three</option>
+          </select>
+        </div>
+        <button class="search-btn d-flex col-lg-2 col-sm-12"><a href="#" class="text-decoration-none text-dark "> ابحث
+            <i class="fa-solid fa-magnifying-glass me-2"></i></a></button>
+      </div>
+    </div>
+  </section>
+  <!-- end search -->
+  <!-- start advantages -->
+  <section id="advantages" class="advantages">
+    <div class="title-text wow fadeIn" data-wow-duration="2s" data-wow-offset="150">
+      <div class="title-image"> </div>
+      <h3 class="title-text-h3">
+        مميزات موقعنا
+      </h3>
+    </div>
+    </div>
+    <div class="container">
+      <div class="advantage row z-3 wow fadeInUp" data-wow-duration="2s" data-wow-offset="200">
+        <div class="advantage-text col-8 p-4">
+          <h3>
+            <i class="fa-solid fa-1"></i>
+            يحتوي علي العديد من المقالات
+          </h3>
+          <p>
+            يحتوي موقعنا على مقالات حصرية عن أغلب التخصصات الجامعية مكتوبة من طرف طلبة و خريجي هذه التخصصات
+            لذلك تأكد من مصداقية ما تقرأ على موقعنا
+          </p>
+        </div>
+        <div class="advantage-bg col-4">
+          <img class="accordion-iamge" src="./imges/advantages1.png" alt="iamge" />
+        </div>
+      </div>
+      <div class="advantage-text2 row z-3 wow fadeInUp" data-wow-duration="2s" data-wow-offset="200">
+        <div class="advantage-bg col-5">
+          <img class="accordion-iamge" src="./imges/advantages2.png" alt="iamge" />
+        </div>
+        <div class="advantage-text a-text col-7 p-4">
+          <h3>
+            <i class="fa-solid fa-2"></i>
+            معلومات عامة عن اغلب مجالات سوق العمل
+          </h3>
+          <p>
+            سوق العمل يشهد تنوعًا كبيرًا في مجالاته، وتتطلب كل مجال مهارات وخبرات محددة لضمان النجاح فيه.
+          </p>
+        </div>
+      </div>
+      <div class="advantage-text2 row z-3 wow fadeInUp" data-wow-duration="2s" data-wow-offset="200">
+        <div class="advantage-text col-8 p-4">
+          <h3>
+            <i class="fa-solid fa-3"></i>
+            نصائح في كيفية اختيار التخصصك
+          </h3>
+          <p>
+            نساعدك في اخيار افضل التخصص الذي يلائمك في مسار حياتك في المستقبل
+          </p>
+        </div>
+        <div class="advantage-bg col-4">
+          <img class="accordion-iamge" src="./imges/advantages3.png" alt="iamge" />
+        </div>
+      </div>
+      <div class="advantage-text2 row wow fadeInUp" data-wow-duration="2s" data-wow-offset="200">
+        <div class="advantage-bg col-5">
+          <img class="accordion-iamge" src="./imges/advantages4.png" alt="iamge" />
+        </div>
+        <div class="advantage-text a-text col-7 p-4">
+          <h3>
+            <i class="fa-solid fa-4"></i>
+            نجعلك الأفضل في مجالك
+          </h3>
+          <p>
+            فريق من الطلبة جامعيين والخرجين من مختلف التخصصات يعمل علي التواصل والمتابعه .
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end advantages -->
+  <section class="slider">
+    <div class="title-text wow fadeIn" data-wow-duration="2s" data-wow-offset="150">
+      <div class="title-image"> </div>
+      <h4 class="title-text-h3"> اراء الزوار </h4>
+    </div>
+    <div class="container text-center p-5 wow fadeInUp" data-wow-duration="2s" data-wow-offset="200">
+      <div id="ratings" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item ">
+            <h5 class="ratingSection">
+              <i class="text-danger fa fa-quote-right" aria-hidden="true"></i>
+              <span class="m-3"> </span>
+              <i class="text-danger fa fa-quote-left" aria-hidden="true"></i>
+            </h5>
+            <h2 class="ratingSection">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </h2>
+            <h4>بارك الله فيكم</h4>
+          </div>
+          <div class="carousel-item ">
+            <h5 class="ratingSection">
+              <i class="text-danger fa fa-quote-right" aria-hidden="true"></i>
+              <span class="m-3"> </span>
+              <i class="text-danger fa fa-quote-left" aria-hidden="true"></i>
+            </h5>
+            <h2 class="ratingSection">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </h2>
+            <h4>موقع رائع....أتمنى التوفيق لفريق العمل لأنه ساعدني بالفعل في إيجاد التخصص المناسب لي.</h4>
+          </div>
+          <div class="carousel-item ">
+            <h5 class="ratingSection">
+              <i class="text-danger fa fa-quote-right" aria-hidden="true"></i>
+              <span class="m-3"> </span>
+              <i class="text-danger fa fa-quote-left" aria-hidden="true"></i>
+            </h5>
+            <h2 class="ratingSection">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </h2>
+            <h4>الله يبارك فيكم ويجعلها في ميزان حسناتكم.</h4>
+          </div>
+          <div class="carousel-item ">
+            <h5 class="ratingSection">
+              <i class="text-danger fa fa-quote-right" aria-hidden="true"></i>
+              <span class="m-3"> </span>
+              <i class="text-danger fa fa-quote-left" aria-hidden="true"></i>
+            </h5>
+            <h2 class="ratingSection">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </h2>
+            <h4>بارك الله فيكم عمل ممتاز وفكرة رائعة بالتوفيق حقا نفتخر بكم ومعكم إلى النجاح</h4>
+          </div>
+          <div class="carousel-item active">
+            <h5 class="ratingSection">
+              <i class="text-danger fa fa-quote-right" aria-hidden="true"></i>
+              <span class="m-3"> </span>
+              <i class="text-danger fa fa-quote-left" aria-hidden="true"></i>
+            </h5>
+            <h2 class="ratingSection">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </h2>
+            <h4>شكرا</h4>
+          </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none" data-bs-target="#ratings" role="button"
+          data-bs-slide="prev">
+          <i class="fa-solid fa-chevron-left cors-btn"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next text-decoration-none" data-bs-target="#ratings" role="button"
+          data-bs-slide="next">
+          <i class="fa-solid fa-chevron-right cors-btn"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <hr>
+      <div class="text-fot wow fadeInUp" data-wow-duration="2s" data-wow-offset="200">
+        <p> نعتبر آراء الزوار الكرام أمرًا مهمًا لتحسين خدماتنا وتقديم تجربة مستخدم متميزة. يسعدنا أن ندعوكم لتقديم
+          آرائكم حول موقعنا وخدماتنا الحالية.
+        </p>
+        <a href="#" class="btn">
+          <span>قيمنا</span>
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- start footer -->
+  <footer class="footer text-center" dir="rtl">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 footer-links text-center wow fadeInRight" data-wow-duration="1s"
+            data-wow-offset="200">
+            <h4>روابط سريعة</h4>
+            <ul style="display: inline-block;">
+              <li><i class="fa-solid fa-chevron-right"></i> <a href="#"> تخصص برمجه </a></li>
+              <li><i class="fa-solid fa-chevron-right"></i> <a href="#"> تخصص شبكات </a></li>
+            </ul>
+          </div>
+
+          <div class="about-us col-lg-6 col-md-6 wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">
+            <h4> عن وجهني </h4>
+            <p>هو موقع يختص في التوجيه الوظيفي حيث يساعد الطالب في اختيار العمل ما بعد الجامعه الأنسب له عبر تزويده بكل
+              ما
+              أمكن من نصائح ومعلومات عن جميع التخصصات الموجوده في سوق العمل داخل مصر .
+            </p>
+            <div class="social-icons">
+              <a href="#"> <i class="fa-brands fa-youtube"></i> </a>
+              <a href="#"> <i class="fa-brands fa-facebook"></i> </a>
+              <a href="#"> <i class="fa-brands fa-square-instagram"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 copyright text-center">
+          <p class="border-top"> جميع الحقوق محفوظة 2023 © وجهني </p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </footer>
+
+  <!-- start modals -->
+  <section class="login-container m-auto modal fade" id="logInModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div>
+          <i class="close-btn fa-solid fa-xmark p-3" data-bs-dismiss="modal" aria-label="Close"></i>
+        </div>
+        <div class="Login">
+          <h1> تسجيل الدخول</h1>
+          <form>
+            <div class="emall-container mb-4">
+              <label> البريد الالكتروني </label>
+              <input id="log-in-email" class="emall" type="text" placeholder="ادخل بريدك الالكتروني">
+            </div>
+            <div class="bassword-container mb-5 position-relative">
+              <label> الرمز السري</label>
+              <input id="log-in-password" class="bassword" type="password" placeholder=" ادخل الرمز السري">
+              <i class="fa-regular fa-eye show-password" id="show-log-in-password" onclick="showPassword('log-in-password', null ,'show-log-in-password')" title="اظهار الرمز"></i>
+            </div>
+            <div class="submit-container">
+              <a onclick="loginBtn()" class="btn submit-btn"> تسجيل الدخول </a>
+            </div>
+            <br>
+            <div class="new-user">
+              <p> ليس لديك حساب؟ <a href="./pages/signup.html"> انشاء حساب </a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- log out modal -->
+  <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
+                </div>
+                <div class="modal-body">
+                    <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+                    <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- end modals -->
+  <!-- end footer -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="./js/axios.js"></script>
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+
+</html>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+  <link rel="icon" href="#">
+  <link rel="apple-touch-icon" href="#">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="../css/all.css">
+  <title> وجهني - انشاء حساب </title>
+</head>
+
+<body>
+  <!-- loder -->
+  <div id="preloader" class="preloader d-flex justify-content-center"><img src="../imges/loading5.gif" alt="loading">
+  </div>
+  <!-- ----- -->
+  <!-- start nav -->
+  <nav class="navbar navbar-expand-lg py-0 z-3 wow fadeInDown" data-wow-duration="2s">
+    <div class="container">
+      <a class="navbar-brand logo py-0" href="../index.html"> <img src="../imges/logo.png" alt="logo"> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="../index.html">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./literary.html"> مجالات تجاره </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Scientific.html"> مجالات حاسبات </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./general.html"> مجالات عامه </a>
+          </li>
+          <div class="d-flex" id="nav-sign">
+            <li class="nav-item">
+              <a class="nav-link link5 active" href="./pages/signup.html">انشئ حساب</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link log-in" href="#" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end nav -->
+  <div id="success-alert" class="show fade"></div>
+
+  <!-- start sign up page -->
+  <section class="sign-up" id="signUp">
+    <div class="container">
+      <div class="newuser">
+        <h1 class="wow fadeInRight section-title" data-wow-duration="2s"> انشاء حساب </h1>
+        <form>
+          <div class="name-container mb-1 wow fadeInUp" data-wow-duration="2s">
+            <label> الاسم بالكامل </label>
+            <input id="full-name" class="emall" type="text" placeholder="ادخل اسمك بالكامل">
+          </div>
+          <div class="emall-container mb-1 wow fadeInUp" data-wow-duration="2s">
+            <label>البريد الالكتروني </label>
+            <input id="email" class="emall" type="email" placeholder="ادخل بريدك الالكتروني">
+          </div>
+          <div class="bassword-container position-relative mb-1 wow fadeInUp" data-wow-duration="2s">
+            <label>الرمز السري</label>
+            <input id="password" class="bassword" type="password" placeholder="ادخل الرمز السري">
+            <i class="fa-regular fa-eye show-password" id="show-password" onclick="showPassword('password', 'password2','show-password')" title="اظهار الرمز"></i>
+          </div>
+          <div class="bassword-container mb-4 wow fadeInUp" data-wow-duration="2s">
+            <label>تأكيد الرمز السري</label>
+            <input id="password2" class="bassword" type="password" placeholder="اعد ادخال الرمز السري">
+          </div>
+          <div class="image-container mb-4 wow fadeInUp" data-wow-duration="2s">
+            <input onchange="imageUpload()" id="profaile-image" class="profaile-image" type="file">
+            <label for="profaile-image">الصوره الشخصيه<i class="pe-3 fa-solid fa-image"
+                style="font-size: 20px;"></i></label>
+          </div>
+          <div class="submit-container wow fadeInLeft" data-wow-duration="2s">
+            <a onclick="signUp()" type="submit" class="btn submit-btn"> انشئ حساب جديد </a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </section>
+  <!-- end sign up page -->
+  <!-- start modals -->
+  <section class="login-container m-auto modal fade" id="logInModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div>
+          <i class="close-btn fa-solid fa-xmark p-3" data-bs-dismiss="modal" aria-label="Close"></i>
+        </div>
+        <div class="Login">
+          <h1> تسجيل الدخول</h1>
+          <form>
+            <div class="emall-container mb-4">
+              <label> البريد الالكتروني </label>
+              <input id="log-in-email" class="emall" type="text" placeholder="ادخل بريدك الالكتروني">
+            </div>
+            <div class="bassword-container mb-5 position-relative">
+              <label> الرمز السري</label>
+              <input id="log-in-password" class="bassword" type="password" placeholder=" ادخل الرمز السري">
+              <i class="fa-regular fa-eye show-password" id="show-log-in-password" onclick="showPassword('log-in-password', null ,'show-log-in-password')" title="اظهار الرمز"></i>
+            </div>
+            <div class="submit-container">
+              <a onclick="loginBtn()" class="btn submit-btn"> تسجيل الدخول </a>
+            </div>
+            <br>
+            <div class="new-user">
+              <p> ليس لديك حساب؟ <a href="./signup.html"> انشاء حساب </a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- end modals -->
+  <!-- start footer -->
+  <footer class="footer text-center" dir="rtl">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 footer-links text-center wow fadeInRight" data-wow-duration="1s"
+            data-wow-offset="200">
+            <h4>روابط سريعة</h4>
+            <ul style="display: inline-block;">
+              <li><i class="fa-solid fa-chevron-right"></i> <a href="#"> تخصص برمجه </a></li>
+              <li><i class="fa-solid fa-chevron-right"></i> <a href="#"> تخصص شبكات </a></li>
+            </ul>
+          </div>
+
+          <div class="about-us col-lg-6 col-md-6 wow fadeInLeft" data-wow-duration="1s" data-wow-offset="200">
+            <h4> عن وجهني </h4>
+            <p> هو موقع يختص في التوجيه الجامعي حيث يساعد الطالب في اخيار العمل ما بعد الجامعه الأنسب له عبر
+              تزويده بكل
+              ما أمكن من نصائح ومعلومات عن جميع التخصصات الجامعية والمدارس الوطنية العليا في مصر .
+            </p>
+            <div class="social-icons">
+              <a href="#"> <i class="fa-brands fa-youtube"></i> </a>
+              <a href="#"> <i class="fa-brands fa-facebook"></i> </a>
+              <a href="#"> <i class="fa-brands fa-square-instagram"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 copyright text-center">
+          <p class="border-top"> جميع الحقوق محفوظة 2023 © وجهني </p>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </footer>
+  <!-- end footer -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="../js/axios.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/search-module.js"></script>
+  <script src="../js/pegesjs/signup.js"></script>
+  <script src="../js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+</body>
+
+</html>
+</body>
+
+</html>
