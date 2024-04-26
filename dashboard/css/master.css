@@ -71,7 +71,7 @@ ul {
 .sidebar ul li a.active i,
 .sidebar ul li a.active span,
 .sidebar ul li a:hover i,
-.sidebar ul li a:hover span{
+.sidebar ul li a:hover span {
   color: #0075ff;
 }
 
@@ -602,7 +602,6 @@ ul {
 }
 .profile-page .skills-card {
   flex-grow: 1;
-
 }
 .profile-page .skills-card ul li {
   padding: 15px 0;
@@ -658,7 +657,7 @@ ul {
   justify-content: center;
   text-align: center;
 }
-.add-project-container{
+.add-project-container {
   position: relative;
   overflow: hidden;
 }
@@ -667,7 +666,7 @@ ul {
   background-color: #0075ff;
   color: white;
   padding: 20px;
-  width:70px;
+  width: 70px;
   height: 70px;
   margin: auto;
   border-radius: 50%;
@@ -675,7 +674,6 @@ ul {
   justify-content: center;
   overflow: hidden;
   z-index: 99;
-
 }
 .add-project span {
   position: absolute;
@@ -689,21 +687,22 @@ ul {
   opacity: 0;
 }
 .add-project:hover span {
-  animation: move .5s ease-in-out;
+  animation: move 0.5s ease-in-out;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-direction: alternate;
 }
 
 @keyframes move {
-  0%{
+  0% {
     transform: translateX(100px);
     opacity: 0;
-  }50%{
+  }
+  50% {
     transform: translateX(50px);
     opacity: 0;
   }
-  100%{
+  100% {
     transform: translateX(0px);
     opacity: 1;
   }
@@ -1149,7 +1148,6 @@ ul {
 }
 
 @keyframes raed-more {
-
   0%,
   100% {
     right: 40px;
@@ -1168,7 +1166,7 @@ ul {
   font-weight: 100;
   transition: 0s;
 }
-.btn-add{
+.btn-add {
   padding: 5px 20px;
   border-radius: 5px;
   border: none;
@@ -1178,8 +1176,44 @@ ul {
   align-items: center;
   justify-content: center;
   max-width: 150px;
-  transition: .4s all; 
+  transition: 0.4s all;
 }
-.btn-add:hover{
+.btn-add:hover {
   background-color: #6042da;
+}
+.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 20px;
+  color: #666;
+}
+.post-de {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+.post-img {
+  background-color: #0075ff;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: 0.3s all ease-in-out;
+}
+.post-img:hover {
+  background-color: #0d69d5;
+}
+.img-fluid {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+  border: #ddd 5px solid;
 }

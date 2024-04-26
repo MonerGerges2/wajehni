@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/all.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="success-alert" class="show fade"></div>
+
+  <section class="login-container" id="logInModal">
+    <div class="dashboard-login-contanier">
+      <div class="dashboard-login">
+        <div class="Login p-5">
+          <h1>تسجيل الدخول</h1>
+          <p>الي لوحه التحكم</p>
+          <form>
+            <div class="emall-container mb-4">
+              <label> البريد الالكتروني </label>
+              <input id="log-in-email" class="emall" type="text" placeholder="ادخل بريدك الالكتروني">
+            </div>
+            <div class="bassword-container mb-5 position-relative">
+              <label> الرمز السري</label>
+              <input id="log-in-password" class="bassword" type="password" placeholder=" ادخل الرمز السري">
+              <i class="fa-regular fa-eye show-password" id="show-log-in-password" onclick="showPassword('log-in-password', null ,'show-log-in-password')" title="اظهار الرمز"></i>
+            </div>
+            <div class="submit-container">
+              <a onclick="loginBtn()" class="btn submit-btn"> تسجيل الدخول </a>
+            </div>
+            <br>
+            <div class="new-user">
+              <p> ليس لديك حساب؟ <a href="./pages/signup.html"> انشاء حساب </a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+    <script src="../js/axios.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="./js/logindashboard.js"></script>
+</body>
+</html>

@@ -18,7 +18,7 @@
       <a class="p-relative logo txt-c mt-0" href="#"> <img src="../imges/logo.png" alt="logo"> </a>
       <ul>
         <li>
-          <a class="active d-flex align-center fs-14  rad-6 p-10" href="./dashboard.html">
+          <a class="active d-flex align-center fs-14  rad-6 p-10" href="dashboard.html">
             <i class="fa-regular fa-chart-bar fa-fw"></i>
             <span>لوحة التحكم</span>
           </a>
@@ -96,7 +96,7 @@
             <div class="d-flex txt-c gap-20 f-wrap">
               <div class="box p-20 rad-10 fs-13 c-grey">
                 <i class="fa-regular fa-rectangle-list fa-2x mb-10 c-orange"></i>
-                <span class="d-block c-black fw-bold fs-25 mb-5">2500</span>
+                <span id="post-cont" class="d-block c-black fw-bold fs-25 mb-5">2500</span>
                 العدد
               </div>
               <div class="box p-20 rad-10 fs-13 c-grey">
@@ -119,39 +119,8 @@
           <!-- End Ticket Widget -->
           <!-- Start Latest News Widget -->
           <div class="latest-news p-20 bg-white rad-10 txt-c-mobile">
-            <h2 class="mt-0 mb-20">احدث المقالات</h2>
-            <div class="news-row d-flex align-center">
-              <img src="imgs/news-01.png" alt="" />
-              <div class="info mr-10">
-                <h3>عنوان المقال</h3>
-                <p class="m-0 fs-14 c-grey">الوصف</p>
-              </div>
-              <div class="btn-shape bg-eee fs-13 label">3 Days Ago</div>
-            </div>
-            <div class="news-row d-flex align-center">
-              <img src="imgs/news-01.png" alt="" />
-              <div class="info mr-10">
-                <h3>عنوان المقال</h3>
-                <p class="m-0 fs-14 c-grey">الوصف</p>
-              </div>
-              <div class="btn-shape bg-eee fs-13 label">3 Days Ago</div>
-            </div>
-            <div class="news-row d-flex align-center">
-              <img src="imgs/news-01.png" alt="" />
-              <div class="info mr-10">
-                <h3>عنوان المقال</h3>
-                <p class="m-0 fs-14 c-grey">الوصف</p>
-              </div>
-              <div class="btn-shape bg-eee fs-13 label">3 Days Ago</div>
-            </div>
-            <div class="news-row d-flex align-center">
-              <img src="imgs/news-01.png" alt="" />
-              <div class="info mr-10">
-                <h3>عنوان المقال</h3>
-                <p class="m-0 fs-14 c-grey">الوصف</p>
-              </div>
-              <div class="btn-shape bg-eee fs-13 label">3 Days Ago</div>
-            </div>
+            <h2 id="recent" class="mt-0 mb-20">احدث المقالات</h2>
+            
           </div>
           <!-- End Latest News Widget -->
           <!-- Start Top Search Word Widget -->
@@ -161,18 +130,10 @@
               <div>الشعبة</div>
               <div>عدد المقالات</div>
             </div>
-            <div class="items d-flex space-between pt-15 pb-15">
-              <span>مجالات تجاره</span>
-              <span class="bg-eee fs-13 btn-shape">220</span>
+            <div id="categ">
+
             </div>
-            <div class="items d-flex space-between pt-15 pb-15">
-              <span>مجالات حاسبات</span>
-              <span class="bg-eee btn-shape fs-13">180</span>
-            </div>
-            <div class="items d-flex space-between pt-15 pb-15">
-              <span>مجالات عامة</span>
-              <span class="bg-eee btn-shape fs-13">160</span>
-            </div>
+
           </div>
           <!-- End Top Search Word Widget -->
         </div>
@@ -245,5 +206,8 @@
         <!-- End Projects Table -->
       </div>
     </div>
+  <script src="../js/axios.js"></script>
+  <script src="./js/dashboard.js"></script>
+  <script src="../js/bootstrap.js"></script>
   </body>
 </html>

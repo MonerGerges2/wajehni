@@ -42,17 +42,17 @@
                         <span>المقالات</span>
                     </a>
                     <div class="m-2 Minu">
-                        <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10" href="../projects.html"><i
-                                class="fa-solid fa-arrow-left"></i>
+                        <a class="active c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
+                            href="projects.html"><i class="fa-solid fa-arrow-left"></i>
                             <span>حذف او تعديل مقال</span>
                         </a>
-                        <a class="active c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
+                        <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
                             href="add-post/add-post.html"><i class="fa-solid fa-arrow-left"></i>
                             <span>اضافة مقال</span>
                         </a>
                         <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
-                            href="./add-categoriy.html"><i class="fa-solid fa-arrow-left"></i>
-                            <span> الشعب </span>
+                            href=""><i class="fa-solid fa-arrow-left"></i>
+                            <span>اضافة شعبه جديده</span>
                         </a>
                     </div>
 
@@ -86,7 +86,7 @@
             <div id="success-alert" class="show fade"></div>
 
             <div class="add-post p-20 bg-white rad-10 m-20">
-                <h2 class="mt-0 mb-20">اضافة مقال جديد</h2>
+                <h2 class="mt-0 mb-20">تعديل المقال</h2>
                 <form method="post" class="row">
                     <div class="post-content col-lg-9">
                         <textarea class="texter" name="textarea" id="default"></textarea>
@@ -104,17 +104,18 @@
                             onchange="previewImage(this)" />
                             <label class="post-img" for="image">الصوره الرمزيه<i class="pe-3 fa-solid fa-image"
                                 style="font-size: 20px;"></i></label>
-                        <img id="image-preview" class="img-fluid" style="display: none;" />
+                        <img id="image-preview" class="img-fluid" style="display: none;" src="" />
                     </div>
 
-                    <a href="#" id="btn-add" onclick="addPost()" class="btn-add bg-blue c-white py">نشر المقال</a>
+                    <button id="btn-add" onclick="updatePost()" class="btn-add bg-blue c-white py">تعديل المقال</button>
                 </form>
             </div>
+
         </div>
         <script src="../../js/axios.js"></script>
         <script src="tinymce/tinymce.min.js"></script>
         <script src="../../js/bootstrap.min.js"></script>
-        <script src="add-post.js"></script>
+        <script src="edit-post.js"></script>
 </body>
 
 </html>

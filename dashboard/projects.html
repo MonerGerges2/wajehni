@@ -43,6 +43,19 @@
             <i class="fa-solid fa-diagram-project fa-fw"></i>
             <span>المقالات</span>
           </a>
+          <div class="m-2 Minu">
+            <a class="active c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html"><i class="fa-solid fa-arrow-left"></i>
+              <span>حذف او تعديل مقال</span>
+            </a>
+            <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10" href="add-post/add-post.html"><i class="fa-solid fa-arrow-left"></i>
+              <span>اضافة مقال</span>
+            </a>
+            <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10" href="add-post/add-categoriy.html"><i class="fa-solid fa-arrow-left"></i>
+              <span>الشعب</span>
+            </a>
+          </div>
+
+
         </li>
         <li>
           <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
@@ -70,85 +83,39 @@
       </div>
       <!-- End Head -->
       <h1 class="p-relative">المقالات</h1>
-      <div class="projects-page row m-20 gap-20">
-        <div class="add-project-container col-12">
-          <a href="./add-post/add-post.html" class="add-project"><i class="fa-solid fa-plus"> <span>اضافة مقاله جديده</span></i></a>
-        </div>
-        <div class="cards col-lg-5 col-md-12">
-          <div class="card">
-            <div class="container-img position-relative">
-              <img class="card-img-top" src="../imges/5985256.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"> Analysis Data </h5>
-              <p class="card-text">
-                تحليل البيانات Analysis Data ستكون وظيفة تحليل البيانات من أكثر مجاالت
-                العمل
-                طلباً في المستقبل، فهي واحدة من أهم فرص العمل التي تطلبها المؤسسات العامة
-                والخاصة، ترتكز هذه الوظيفة على مهارات التعامل مع الحواسيب ومعرفة عميقة
-                بالخوارزميات والرياضيات واإلحصاء ونظريات االحتمال الرياضية.
-              </p>
-            </div>
-            <a href="#" class="btn card-btn"> تعديل المقال <span><i class="fa-solid fa-arrow-right-long"></i></span></a>
+      <div class="add-project-container col-12">
+        <a href="add-post/add-post.html" class="add-project"><i class="fa-solid fa-plus"><span>اضافة مقاله
+              جديده</span></i></a>
+      </div>
+      <div id="projects" class="projects-page row m-20 gap-20">
+
+      </div>
+      <div id="noData" class="no-data"></div>
+    </div>
+    <div class="modal log-out-modal tab-pane fade" id="deletePostModal" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">حذف الحساب</h5>
           </div>
-        </div>
-        <div class="cards col-lg-5 col-md-12">
-          <div class="card">
-            <div class="container-img position-relative">
-              <img class="card-img-top" src="../imges/5985256.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"> Analysis Data </h5>
-              <p class="card-text">
-                تحليل البيانات Analysis Data ستكون وظيفة تحليل البيانات من أكثر مجاالت
-                العمل
-                طلباً في المستقبل، فهي واحدة من أهم فرص العمل التي تطلبها المؤسسات العامة
-                والخاصة، ترتكز هذه الوظيفة على مهارات التعامل مع الحواسيب ومعرفة عميقة
-                بالخوارزميات والرياضيات واإلحصاء ونظريات االحتمال الرياضية.
-              </p>
-            </div>
-            <a href="#" class="btn card-btn"> تعديل المقال  <span><i class="fa-solid fa-arrow-right-long"></i></span></a>
+          <div class="modal-body">
+            <p>هل انت متاكد من انك تريد حذف المقال؟</p>
           </div>
-        </div>
-        <div class="cards col-lg-5 col-md-12">
-          <div class="card">
-            <div class="container-img position-relative">
-              <img class="card-img-top" src="../imges/5985256.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"> Analysis Data </h5>
-              <p class="card-text">
-                تحليل البيانات Analysis Data ستكون وظيفة تحليل البيانات من أكثر مجاالت
-                العمل
-                طلباً في المستقبل، فهي واحدة من أهم فرص العمل التي تطلبها المؤسسات العامة
-                والخاصة، ترتكز هذه الوظيفة على مهارات التعامل مع الحواسيب ومعرفة عميقة
-                بالخوارزميات والرياضيات واإلحصاء ونظريات االحتمال الرياضية.
-              </p>
-            </div>
-            <a href="#" class="btn card-btn"> تعديل المقال <span><i class="fa-solid fa-arrow-right-long"></i></span></a>
-          </div>
-        </div>
-        <div class="cards col-lg-5 col-md-12">
-          <div class="card">
-            <div class="container-img position-relative">
-              <img class="card-img-top" src="../imges/5985256.jpg" alt="Card image cap">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"> Analysis Data </h5>
-              <p class="card-text">
-                تحليل البيانات Analysis Data ستكون وظيفة تحليل البيانات من أكثر مجاالت
-                العمل
-                طلباً في المستقبل، فهي واحدة من أهم فرص العمل التي تطلبها المؤسسات العامة
-                والخاصة، ترتكز هذه الوظيفة على مهارات التعامل مع الحواسيب ومعرفة عميقة
-                بالخوارزميات والرياضيات واإلحصاء ونظريات االحتمال الرياضية.
-              </p>
-            </div>
-            <a href="#" class="btn card-btn"> تعديل المقال  <span><i class="fa-solid fa-arrow-right-long"></i></span></a>
-          </div>
+          <input class="d-none" type="text" id="deletePostId" value="">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+              id="closedeleteProfileModal">لا</button>
+            <button type="button" class="btn btn-danger" onclick="deleteProfile()">حذف المقال
+
+            </button>
           </div>
         </div>
       </div>
-      <script src="../js/bootstrap.min.js"></script>
+    </div>
+    <script src="../js/axios.js"></script>
+    <script src="./js/projects.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 
 </html>

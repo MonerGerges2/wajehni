@@ -1327,3 +1327,23 @@ a {
 .setting-delete:hover {
   background-color: rgb(189, 0, 0) !important;
 }
+
+.dashboard-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.dashboard-login .Login p{
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4444;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 20px !important;
+}
+.dashboard-login .Login h1{
+
+  margin-bottom: 0px !important;
+padding-bottom: 0px !important;
+}
