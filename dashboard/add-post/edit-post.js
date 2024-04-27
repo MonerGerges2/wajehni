@@ -137,7 +137,7 @@ function getPost() {
     .then((response) => {
       let post = response.data.data;
       getImage = post.image;
-
+        console.log(getImage);
       // Set the title, description, and content of the post
       document.getElementById("title").value = post.title;
       document.getElementById("description").value = post.description;
@@ -173,7 +173,6 @@ function getPost() {
       appendAlert("حدث خطأ أثناء جلب المنشور", "danger");
     });
 }
-
 getPost();
 
 async function updatePost() {
@@ -185,9 +184,10 @@ async function updatePost() {
     let description = document.getElementById("description").value;
     let content = tinymce.get("default").getContent();
     let category = document.getElementById("categories").value;
-    let newImage = getImage ? getImage.split("/").pop() : await imageUpload();
-
-    if (!title || !description || !content || !category) {
+    let newImage = await imageUpload() ? await imageUpload() : getImage.split("/").pop();
+    
+    if (!title || !description || !content || !category || !newImage) {
+      appendAlert("الرجاء ملء جميع الحقول المطلوبة", "danger");
       throw new Error("Please fill out all required fields.");
     }
 
