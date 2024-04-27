@@ -137,7 +137,6 @@ function previewImage(input) {
 async function addPost() {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
-  let image = document.getElementById("image").files[0];
   let content = tinymce.get("default").getContent();
   let category = document.getElementById("categories").value;
   let newImage = await imageUpload();
@@ -167,6 +166,48 @@ async function addPost() {
       console.error("Error adding post:", error.message);
     });
 }
+
+function getUserdata() {
+  let token = localStorage.getItem("token");
+  let avatar = document.getElementById("avatar");
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .get(`${urlImage}user`, { headers: headers })
+    .then((response) => {
+      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getUserdata();
+
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "../../dashboard/login.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();
+
+// log out
+function logOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  localStorage.removeItem("image");
+  localStorage.removeItem("email");
+  checkAuthentication();
+}
+let closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+});
 
 // alert function
 function appendAlert(message, type) {

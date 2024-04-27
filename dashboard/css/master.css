@@ -1043,6 +1043,9 @@ ul {
 /* End Animation */
 /* start cards  */
 .card .card-img-top {
+  width: 100%;
+  min-height: 250px !important;
+  max-height: 250px !important;
   position: relative;
   transition: all 0.5s ease-in-out;
 }
@@ -1216,4 +1219,24 @@ ul {
   object-position: center;
   border-radius: 10px;
   border: #ddd 5px solid;
+}
+.log-out{
+  color: #f5493d;
+  background-color: transparent;
+  font-size: 25px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: 0.3s all ease-in-out;
+}
+.log-out:hover {
+  color: #f01707;
+}
+.head-avatar{
+border-radius: 50%;
 }

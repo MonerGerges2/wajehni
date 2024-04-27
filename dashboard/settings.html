@@ -65,84 +65,97 @@
           <input class="p-10" type="search" placeholder="ابحث عن مقال..." />
         </div>
         <div class="icons d-flex align-center">
-          <img src="../imges/avatar.jpg" alt="" />
+          <button class="log-out" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"><i
+              class="fa-solid fa-right-from-bracket"></i></button>
+          <img id="avatar" class="head-avatar" src="../imges/avatar.jpg" alt="avatar" />
         </div>
       </div>
-        <!-- End Head -->
-        <div id="success-alert" class="show fade"></div>
-        <h1 class="p-relative">الاعدادات</h1>
-        <div class="settings-page m-20 d-grid gap-20">
+      <!-- End Head -->
+      <div id="success-alert" class="show fade"></div>
+      <h1 class="p-relative">الاعدادات</h1>
+      <div class="settings-page m-20 d-grid gap-20">
 
-          <!-- Start Settings Box -->
-          <div class="p-20 bg-white rad-10">
-            <h2 class="mt-0 mb-10"> تعديل المعلومات الشخصية </h2>
-            <p class="mt-0 mb-20 c-grey fs-15">جميع المعلومات الخاصة بحسابك تتمكن من تعديلها</p>
-            <div class="mb-15 new-name">
-              <label class="fs-14 c-grey d-block mb-10" for="first">الاسم</label>
-              <input
-                class="email b-none border-ccc p-10 rad-6  w-full mr-10"
-                type="text"
-                id="changename"
-                placeholder="New Name"
-              />
-              <a onclick="changeName()" class="c-blue" href="#">تغيير</a>
-            </div>
+        <!-- Start Settings Box -->
+        <div class="p-20 bg-white rad-10">
+          <h2 class="mt-0 mb-10"> تعديل المعلومات الشخصية </h2>
+          <p class="mt-0 mb-20 c-grey fs-15">جميع المعلومات الخاصة بحسابك تتمكن من تعديلها</p>
+          <div class="mb-15 new-name">
+            <label class="fs-14 c-grey d-block mb-10" for="first">الاسم</label>
+            <input class="email b-none border-ccc p-10 rad-6  w-full mr-10" type="text" id="changename"
+              placeholder="New Name" />
+            <a onclick="changeName()" class="c-blue" href="#">تغيير</a>
+          </div>
+          <div>
+            <label class="fs-14 c-grey d-block mb-5" for="email">البريد الالكتروني</label>
+            <input class="email b-none border-ccc p-10 rad-6 w-full mr-10" id="email" type="email"
+              value="user@email.com" disabled />
+            <a class="c-blue" href="#">تغيير</a>
+          </div>
+        </div>
+        <!-- End Settings Box -->
+        <!-- Start Settings Box -->
+        <div class="p-20 bg-white rad-10">
+          <h2 class="mt-0 mb-10">تعديل معلومات الامان</h2>
+          <p class="mt-0 mb-20 c-grey fs-15">تعديل معلومات الامان الخاصة بحسابك</p>
+          <div class="sec-box mb-15 between-flex">
             <div>
-              <label class="fs-14 c-grey d-block mb-5" for="email">البريد الالكتروني</label>
-              <input
-                class="email b-none border-ccc p-10 rad-6 w-full mr-10"
-                id="email"
-                type="email"
-                value="user@email.com"
-                disabled
-              />
-              <a class="c-blue" href="#">تغيير</a>
+              <span>كلمة المرور</span>
+              <p class="c-grey mt-5 mb-0 fs-13">1/1/2022 اخر تغيير لكلمة المرور بتاريخ </p>
             </div>
+            <a class="button bg-blue c-white btn-shape" href="#">تغيير</a>
           </div>
-          <!-- End Settings Box -->
-          <!-- Start Settings Box -->
-          <div class="p-20 bg-white rad-10">
-            <h2 class="mt-0 mb-10">تعديل معلومات الامان</h2>
-            <p class="mt-0 mb-20 c-grey fs-15">تعديل معلومات الامان الخاصة بحسابك</p>
-            <div class="sec-box mb-15 between-flex">
-              <div>
-                <span>كلمة المرور</span>
-                <p class="c-grey mt-5 mb-0 fs-13">1/1/2022 اخر تغيير لكلمة المرور بتاريخ </p>
-              </div>
-              <a class="button bg-blue c-white btn-shape" href="#">تغيير</a>
+          <div class="sec-box between-flex">
+            <div>
+              <span>حذف الحساب</span>
+              <p class="c-grey mt-5 mb-0 fs-13">حذف الحساب بشكل نهائي</p>
             </div>
-            <div class="sec-box between-flex">
-              <div>
-                <span>حذف الحساب</span>
-                <p class="c-grey mt-5 mb-0 fs-13">حذف الحساب بشكل نهائي</p>
-              </div>
-              <a class="bg-red c-white btn-shape" href="#" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">حذف</a>
-            </div>
+            <a class="bg-red c-white btn-shape" href="#" data-bs-toggle="modal"
+              data-bs-target="#deleteProfileModal">حذف</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="modal log-out-modal tab-pane fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">حذف الحساب</h5>
-                </div>
-                <div class="modal-body">
-                    <p>هل انت متاكد من انك تريد حذف الحساب؟</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closedeleteProfileModal">لا</button>
-                    <button type="button" class="btn btn-danger" onclick="deleteProfile()">حذف الحساب
-
-                    </button>
-                </div>
-            </div>
+  </div>
+  <div class="modal log-out-modal tab-pane fade" id="deleteProfileModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">حذف الحساب</h5>
         </div>
+        <div class="modal-body">
+          <p>هل انت متاكد من انك تريد حذف الحساب؟ مع العلم انك اذا وافقت سيتم حذف الحساب بشكل نهائي</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closedeleteProfileModal">لا</button>
+          <button type="button" class="btn btn-danger" onclick="deleteProfile()">حذف الحساب
+
+          </button>
+        </div>
+      </div>
     </div>
-    <script src="../js/axios.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="./js/settings.js"></script>
-  </body>
+  </div>
+  <!-- log out modal -->
+  <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
+        </div>
+        <div class="modal-body">
+          <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+          <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/axios.js"></script>
+  <script src="../js/bootstrap.js"></script>
+  <script src="./js/settings.js"></script>
+</body>
+
 </html>

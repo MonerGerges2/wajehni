@@ -19,8 +19,8 @@ function getData() {
         // Display message when there are no posts available
         noData.innerHTML = `<p> لا يوجد مقالات... </p>`;
         return;
-      }else{
-        noData.style.display = 'none';
+      } else {
+        noData.style.display = "none";
       }
 
       for (let project of projects) {
@@ -32,7 +32,7 @@ function getData() {
                       </div>
                       <div class="card-body">
                           <h5 class="card-title">${project.title}</h5>
-                          <p class="card-text">${project.description}</p>
+                          <p class="card-text">${project.description < 250 ? project.description : project.description.slice(0, 200) + "..."}</p>
                       </div>
                       <div class="d-flex justify-content-between">
                           <button onclick="addPostId(${project.id})" class="btn btn-primary m-2"> تعديل المقال </button>
@@ -63,7 +63,7 @@ function deleteProfile() {
   axios
     .delete(`${url}admin/posts/${id}`, { headers: headers })
     .then((response) => {
-      location.reload();
+      window.location.reload();
     })
     .catch((error) => {
       console.error(error);
@@ -82,3 +82,44 @@ function checkAuthentication() {
 }
 
 checkAuthentication();
+
+document
+  .getElementById("closedeleteProfileModal")
+  .addEventListener("click", () => {
+    bootstrap.Modal.getInstance(
+      document.getElementById("deletePostModal")
+    ).hide();
+  });
+
+  function getUserdata() {
+    let token = localStorage.getItem("token");
+    let avatar = document.getElementById("avatar");
+  
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    };
+    axios
+      .get(`${url}user`, { headers: headers })
+      .then((response) => {
+        avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+  getUserdata();
+  
+  // log out
+  function logOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("image");
+    localStorage.removeItem("email");
+    checkAuthentication();
+  }
+  let closeBtn = document.getElementById("closeBtn");
+  closeBtn.addEventListener("click", () => {
+    bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+  });
+  

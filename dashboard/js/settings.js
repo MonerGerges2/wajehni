@@ -72,22 +72,6 @@ async function changeName() {
   }
 }
 
-function appendAlert(message, type) {
-  const alertPlaceholder = document.getElementById("success-alert");
-  const wrapper = document.createElement("div");
-  wrapper.innerHTML = [
-    `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    "</div>",
-  ].join("");
-  alertPlaceholder.append(wrapper);
-  setTimeout(() => {
-    const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
-    closeAlert.close();
-  }, 3000);
-}
-
 let closedeleteProfileModal = document.getElementById("closedeleteProfileModal");
 closedeleteProfileModal.addEventListener("click", () => {
   const inst = bootstrap.Modal.getInstance(deleteProfileModal);
@@ -117,3 +101,71 @@ function deleteProfile() {
       console.error(error);
     });
 }
+
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "../login.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();
+
+function getUserdata() {
+  let token = localStorage.getItem("token");
+  let avatar = document.getElementById("avatar");
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .get(`${url}user`, { headers: headers })
+    .then((response) => {
+      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getUserdata();
+
+// log out
+function logOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  localStorage.removeItem("image");
+  localStorage.removeItem("email");
+  appendAlert("تم تسجيل الخروج بنجاح", "success");
+  checkAuthentication();
+}
+let closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+});
+
+function appendAlert(message, type) {
+  const alertPlaceholder = document.getElementById("success-alert");
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = [
+    `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    "</div>",
+  ].join("");
+  alertPlaceholder.append(wrapper);
+  setTimeout(() => {
+    const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
+    closeAlert.close();
+  }, 3000);
+}
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "../../dashboard/login.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();

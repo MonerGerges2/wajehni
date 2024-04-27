@@ -3,6 +3,7 @@ let url = "https://backend.waterleaksksa.com/api/";
 function getUserData() {
   const token = localStorage.getItem("token");
   let profileBox = document.getElementById("profile-box");
+  let avatar = document.getElementById("avatar");
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -10,6 +11,7 @@ function getUserData() {
 
   axios.get(`${url}user`, { headers: headers })
     .then(response => {
+      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
       const userData = response.data.data;
       profileBox.innerHTML = `
       <div class="avatar-box txt-c p-20">
@@ -53,3 +55,41 @@ function getUserData() {
   
 }
 getUserData();
+// log out
+function logOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  localStorage.removeItem("image");
+  localStorage.removeItem("email");
+  checkAuthentication();
+}
+let closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+});
+
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "../../dashboard/login.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();
+
+function appendAlert(message, type) {
+  const alertPlaceholder = document.getElementById("success-alert");
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = [
+    `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    "</div>",
+  ].join("");
+  alertPlaceholder.append(wrapper);
+  setTimeout(() => {
+    const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
+    closeAlert.close();
+  }, 3000);
+}

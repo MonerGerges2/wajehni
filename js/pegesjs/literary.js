@@ -1,5 +1,13 @@
 let urlPosts = "https://backend.waterleaksksa.com/api/";
 
+  function handlelInfiniteSceoll() {
+    const endOfpage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+
+    if (endOfpage) {
+      getPostsData();
+    }
+  }
+
 function getPostsData() {
   let cards = document.getElementById("cards");
 
@@ -20,7 +28,9 @@ function getPostsData() {
             <div class="card-body">
                 <h5 class="card-title"> ${post.title} </h5>
                 <p class="card-text">
-                    ${post.description}
+                    ${
+                      post.description < 250 ? post.description : post.description.slice(0, 200) + "..."
+                    }
                 </p>
             </div>
             <a href="#" onclick="addPostId(${post.id})" class="btn card-btn"> اقرا المزيد <span><i

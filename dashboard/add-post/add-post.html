@@ -79,8 +79,10 @@
                     <input class="p-10" type="search" placeholder="ابحث عن مقال..." />
                 </div>
                 <div class="icons d-flex align-center">
-                    <img src="../../imges/avatar.jpg" alt="" />
-                </div>
+                    <button class="log-out" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"><i
+                        class="fa-solid fa-right-from-bracket"></i></button>
+                    <img id="avatar" class="head-avatar" src="../../imges/avatar.jpg" alt="avatar" />
+                  </div>
             </div>
 
             <div id="success-alert" class="show fade"></div>
@@ -102,13 +104,30 @@
                         <input type="file" name="file" id="image"
                             class="d-none post border-ccc p-10 rad-6 w-full mb-20 mt-10" accept="image/*"
                             onchange="previewImage(this)" />
-                            <label class="post-img" for="image">الصوره الرمزيه<i class="pe-3 fa-solid fa-image"
+                        <label class="post-img" for="image">الصوره الرمزيه<i class="pe-3 fa-solid fa-image"
                                 style="font-size: 20px;"></i></label>
                         <img id="image-preview" class="img-fluid" style="display: none;" />
                     </div>
 
                     <a href="#" id="btn-add" onclick="addPost()" class="btn-add bg-blue c-white py">نشر المقال</a>
                 </form>
+            </div>
+        </div>
+        <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+                        <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج </button>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="../../js/axios.js"></script>

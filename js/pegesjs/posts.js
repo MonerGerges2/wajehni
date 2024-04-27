@@ -26,7 +26,10 @@ function getPostsData() {
     postsContainer.innerHTML = `
         ${Response.data.data.content}
         `;
-  });
+  }).catch((error) => {
+    console.error(error)
+    window.location.href = "404.html";
+  })
 }
 getPostsData();
 

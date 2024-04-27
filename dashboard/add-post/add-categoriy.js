@@ -1,4 +1,5 @@
 let url = "https://backend.waterleaksksa.com/api/admin/";
+let url2 = "https://backend.waterleaksksa.com/api/";
 
 function getCategories() {
   let categoriesElement = document.getElementById("categories");
@@ -144,6 +145,49 @@ function editCategory() {
       console.error("Error fetching category:", error);
     });
 }
+
+function getUserdata() {
+  let token = localStorage.getItem("token");
+  let avatar = document.getElementById("avatar");
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .get(`${url2}user`, { headers: headers })
+    .then((response) => {
+      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getUserdata();
+
+// log out
+function logOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  localStorage.removeItem("image");
+  localStorage.removeItem("email");
+  appendAlert("تم تسجيل الخروج بنجاح", "success");
+  checkAuthentication();
+}
+let closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+});
+
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "../../dashboard/login.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();
 
 function appendAlert(message, type) {
   const alertPlaceholder = document.getElementById("success-alert");

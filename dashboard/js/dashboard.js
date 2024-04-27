@@ -25,7 +25,6 @@ function getData() {
 getData();
 
 function getPostsData() {
-  let cont = document.getElementById("post-cont");
   let recent = document.getElementById("recent");
   let token = localStorage.getItem("token");
   const headers = {
@@ -35,7 +34,8 @@ function getPostsData() {
   axios
     .get(`${url}admin/posts`, { headers: headers })
     .then((response) => {
-      cont.innerHTML = response.data.data.items_count;
+      
+      document.getElementById("post-cont").innerHTML = response.data.data.items_count;
 
       let posts = response.data.data.data;
       for (post of posts) {
@@ -46,10 +46,15 @@ function getPostsData() {
             post.title < 50 ? post.title : post.title.slice(0, 50) + "..."
           }</h3>
           <p class="m-0 fs-14 c-grey mw" >${
-            post.description < 100 ? post.description : post.description.slice(0, 100) + "..."
+            post.description < 100
+              ? post.description
+              : post.description.slice(0, 100) + "..."
           }</p>
         </div>
-        <div class="btn-shape bg-eee fs-13 label">${post.created_at.slice(0,10)}
+        <div class="btn-shape bg-eee fs-13 label">${post.created_at.slice(
+          0,
+          10
+        )}
         </div>
       </div>`;
       }
@@ -68,12 +73,13 @@ function checkAuthentication() {
     window.location.href = "login.html"; // Redirect to the login page
   }
 }
-
 checkAuthentication();
 
 function getUserdata() {
   let welcome = document.getElementById("welcome");
   let token = localStorage.getItem("token");
+  let avatar = document.getElementById("avatar");
+
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -81,6 +87,7 @@ function getUserdata() {
   axios
     .get(`${url}user`, { headers: headers })
     .then((response) => {
+      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";
       welcome.innerHTML = `<div class="intro p-20 d-flex space-between bg-eee">
       <div>
         <h2 class="m-0">مرحبا.</h2>
@@ -91,7 +98,7 @@ function getUserdata() {
     <img src="${response.data.data.image}" alt="" class="avatar" />
     <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
       <div> ${response.data.data.full_name} <span class="d-block c-grey fs-14 mt-10">الاسم</span></div>
-      <div>80 <span class="d-block c-grey fs-14 mt-10">عدد مقالاتي</span></div>
+      <div> 0 <span class="d-block c-grey fs-14 mt-10">عدد مقالاتي</span></div>
     </div>
     <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
       <div> ${response.data.data.email} <span class="d-block c-grey fs-14 mt-10">البريد الالكتروني</span></div>
@@ -103,3 +110,34 @@ function getUserdata() {
     });
 }
 getUserdata();
+
+// log out
+function logOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  localStorage.removeItem("image");
+  localStorage.removeItem("email");
+  appendAlert("تم تسجيل الخروج بنجاح", "success");
+  checkAuthentication();
+}
+let closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+});
+
+function appendAlert(message, type) {
+  const alertPlaceholder = document.getElementById("success-alert");
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = [
+    `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    "</div>",
+  ].join("");
+  alertPlaceholder.append(wrapper);
+  setTimeout(() => {
+    const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
+    closeAlert.close();
+  }, 3000);
+}
+

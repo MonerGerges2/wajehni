@@ -62,9 +62,12 @@
             <input class="p-10" type="search" placeholder="ابحث عن مقال..." />
           </div>
           <div class="icons d-flex align-center">
-            <img src="../imges/avatar.jpg" alt="" />
+            <button class="log-out" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"><i class="fa-solid fa-right-from-bracket"></i></button>
+            <img id="avatar" class="head-avatar" src="../imges/avatar.jpg" alt="avatar" />
           </div>
         </div>
+        <div id="success-alert" class="show fade"></div>
+
         <!-- End Head -->
         <h1 class="p-relative">لوحة التحكم</h1>
         <div class="wrapper d-grid gap-20">
@@ -80,7 +83,7 @@
             <img src="../imges/avatar.jpg" alt="" class="avatar" />
             <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
               <div> Moner Gerges <span class="d-block c-grey fs-14 mt-10">الاسم</span></div>
-              <div>80 <span class="d-block c-grey fs-14 mt-10">عدد مقالاتي</span></div>
+              <div> 0 <span class="d-block c-grey fs-14 mt-10">عدد مقالاتي</span></div>
             </div>
             <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
               <div>user@email.com <span class="d-block c-grey fs-14 mt-10">البريد الالكتروني</span></div>
@@ -96,22 +99,22 @@
             <div class="d-flex txt-c gap-20 f-wrap">
               <div class="box p-20 rad-10 fs-13 c-grey">
                 <i class="fa-regular fa-rectangle-list fa-2x mb-10 c-orange"></i>
-                <span id="post-cont" class="d-block c-black fw-bold fs-25 mb-5">2500</span>
+                <span id="post-cont" class="d-block c-black fw-bold fs-25 mb-5">0</span>
                 العدد
               </div>
               <div class="box p-20 rad-10 fs-13 c-grey">
                 <i class="fa-solid fa-spinner fa-2x mb-10 c-blue"></i>
-                <span class="d-block c-black fw-bold fs-25 mb-5">500</span>
+                <span class="d-block c-black fw-bold fs-25 mb-5">0</span>
                 تحت الانتظار
               </div>
               <div class="box p-20 rad-10 fs-13 c-grey">
                 <i class="fa-regular fa-circle-check fa-2x mb-10 c-green"></i>
-                <span class="d-block c-black fw-bold fs-25 mb-5">1900</span>
+                <span class="d-block c-black fw-bold fs-25 mb-5">0</span>
                 تم الانتهاء
               </div>
               <div class="box p-20 rad-10 fs-13 c-grey">
                 <i class="fa-regular fa-rectangle-xmark fa-2x mb-10 c-red"></i>
-                <span class="d-block c-black fw-bold fs-25 mb-5">100</span>
+                <span class="d-block c-black fw-bold fs-25 mb-5">0</span>
                 المقالات المحذوفه
               </div>
             </div>
@@ -205,6 +208,24 @@
         </div>
         <!-- End Projects Table -->
       </div>
+    </div>
+    <!-- log out modal -->
+    <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
+                </div>
+                <div class="modal-body">
+                    <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+                    <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج </button>
+                </div>
+            </div>
+        </div>
     </div>
   <script src="../js/axios.js"></script>
   <script src="./js/dashboard.js"></script>

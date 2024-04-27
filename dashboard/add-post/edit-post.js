@@ -255,3 +255,36 @@ function appendAlert(message, type) {
     closeAlert.close();
   }, 3000);
 }
+
+function getUserdata() {
+  let token = localStorage.getItem("token");
+  let avatar = document.getElementById("avatar");
+
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .get(`${urlImage}user`, { headers: headers })
+    .then((response) => {
+      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getUserdata();
+
+// log out
+function logOut() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("name");
+  localStorage.removeItem("image");
+  localStorage.removeItem("email");
+  appendAlert("تم تسجيل الخروج بنجاح", "success");
+  checkAuthentication();
+}
+let closeBtn = document.getElementById("closeBtn");
+closeBtn.addEventListener("click", () => {
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
+});
