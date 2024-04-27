@@ -959,6 +959,9 @@ a {
   background: #ffffff;
   border-radius: 15px;
   margin: 20px 50px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Login h1 {
@@ -1013,7 +1016,7 @@ a {
   color: #ffffff;
   background-color: #246bfe;
   border-radius: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -1346,4 +1349,89 @@ a {
 
   margin-bottom: 0px !important;
 padding-bottom: 0px !important;
+}
+.post-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.post-bg{
+  background-color: #f5f5f5;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 95%;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+}
+.post-bg img{
+  border-radius: 10px;
+}
+.post-bg p{
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444444c9;
+  margin-bottom: 20px;
+}
+.post-bg h1{
+  font-weight: 700;
+  color: #246bfe;
+  margin-bottom: 20px;
+}
+.post-bg h3{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #246bfe;
+  margin-bottom: 20px;
+}
+.post-comments h2{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+
+}
+.post-comments .comment{
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+}
+.post-comments .comment p{
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444444c9;
+  margin-bottom: 20px;
+}
+.post-comments .comment img{
+  border-radius: 50%;
+  width: 40px;
+
+  margin-right: 10px;
+}
+.comment-form button{
+  border: none;
+  padding: 5px 20px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0345c9;
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.comment-form button:hover{
+  background-color: #0254f8;
+  color: #ffffff;
+}
+.comment-form textarea{
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+  height: 40px;
+  border: 1px solid #ffffff;
+  font-size: 16px;
+  margin-bottom: 20px;
 }

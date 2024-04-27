@@ -69,6 +69,7 @@
         </div>
       </div>
         <!-- End Head -->
+        <div id="success-alert" class="show fade"></div>
         <h1 class="p-relative">الاعدادات</h1>
         <div class="settings-page m-20 d-grid gap-20">
 
@@ -81,10 +82,10 @@
               <input
                 class="email b-none border-ccc p-10 rad-6  w-full mr-10"
                 type="text"
-                id="first"
+                id="changename"
                 placeholder="New Name"
               />
-              <a class="c-blue" href="#">تغيير</a>
+              <a onclick="changeName()" class="c-blue" href="#">تغيير</a>
             </div>
             <div>
               <label class="fs-14 c-grey d-block mb-5" for="email">البريد الالكتروني</label>
@@ -115,14 +116,33 @@
                 <span>حذف الحساب</span>
                 <p class="c-grey mt-5 mb-0 fs-13">حذف الحساب بشكل نهائي</p>
               </div>
-              <a class="bg-red c-white btn-shape" href="#">حذف</a>
+              <a class="bg-red c-white btn-shape" href="#" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">حذف</a>
             </div>
           </div>
-          <!-- End Settings Box -->
-          
-          <!-- End Settings Box -->
         </div>
       </div>
     </div>
+    <div class="modal log-out-modal tab-pane fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">حذف الحساب</h5>
+                </div>
+                <div class="modal-body">
+                    <p>هل انت متاكد من انك تريد حذف الحساب؟</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closedeleteProfileModal">لا</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteProfile()">حذف الحساب
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/axios.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="./js/settings.js"></script>
   </body>
 </html>

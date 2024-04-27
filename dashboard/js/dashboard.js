@@ -39,16 +39,18 @@ function getPostsData() {
 
       let posts = response.data.data.data;
       for (post of posts) {
-        recent.innerHTML += `<div class="news-row d-flex align-center">
+        recent.innerHTML += `<div class="news-row d-flex align-center mt-15">
         <img src="${post.image}" alt="" />
         <div class="info mr-10">
-          <h3>${post.title}</h3>
-          <p class="m-0 fs-14 c-grey">${post.description}</p>
+          <h3>${
+            post.title < 50 ? post.title : post.title.slice(0, 50) + "..."
+          }</h3>
+          <p class="m-0 fs-14 c-grey mw" >${
+            post.description < 100 ? post.description : post.description.slice(0, 100) + "..."
+          }</p>
         </div>
-        <div class="btn-shape bg-eee fs-13 label">${post.created_at.slice(
-          0,
-          10
-        )}</div>
+        <div class="btn-shape bg-eee fs-13 label">${post.created_at.slice(0,10)}
+        </div>
       </div>`;
       }
     })
@@ -68,3 +70,36 @@ function checkAuthentication() {
 }
 
 checkAuthentication();
+
+function getUserdata() {
+  let welcome = document.getElementById("welcome");
+  let token = localStorage.getItem("token");
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+  axios
+    .get(`${url}user`, { headers: headers })
+    .then((response) => {
+      welcome.innerHTML = `<div class="intro p-20 d-flex space-between bg-eee">
+      <div>
+        <h2 class="m-0">مرحبا.</h2>
+        <p class="c-grey mt-5">${response.data.data.full_name}</p>
+      </div>
+      <img class="hide-mobile" src="imgs/welcome.png" alt="" />
+    </div>
+    <img src="${response.data.data.image}" alt="" class="avatar" />
+    <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+      <div> ${response.data.data.full_name} <span class="d-block c-grey fs-14 mt-10">الاسم</span></div>
+      <div>80 <span class="d-block c-grey fs-14 mt-10">عدد مقالاتي</span></div>
+    </div>
+    <div class="body txt-c d-flex p-20 mt-20 mb-20 block-mobile">
+      <div> ${response.data.data.email} <span class="d-block c-grey fs-14 mt-10">البريد الالكتروني</span></div>
+      <div> ${response.data.data.guard} <span class="d-block c-grey fs-14 mt-10">الصلاحية</span></div>
+    </div>`;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+getUserdata();

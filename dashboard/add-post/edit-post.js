@@ -1,5 +1,6 @@
 var url = "https://backend.waterleaksksa.com/api/admin/";
 var urlImage = "https://backend.waterleaksksa.com/api/";
+let getImage = "";
 
 tinymce.init({
   selector: "textarea#default",
@@ -121,7 +122,6 @@ function getPost() {
 
   // Get the value of the 'id' parameter
   const id = urlParams.get("id");
-
   if (!id) {
     console.error("No post ID provided.");
     return;
@@ -136,10 +136,12 @@ function getPost() {
     .get(`${url}posts/${id}`, { headers: headers })
     .then((response) => {
       let post = response.data.data;
+      getImage = post.image;
 
       // Set the title, description, and content of the post
       document.getElementById("title").value = post.title;
       document.getElementById("description").value = post.description;
+
       tinymce.get("default").setContent(post.content);
 
       // Set the image source to the post's image
@@ -183,7 +185,7 @@ async function updatePost() {
     let description = document.getElementById("description").value;
     let content = tinymce.get("default").getContent();
     let category = document.getElementById("categories").value;
-    let newImage = await imageUpload();
+    let newImage = getImage ? getImage.split("/").pop() : await imageUpload();
 
     if (!title || !description || !content || !category) {
       throw new Error("Please fill out all required fields.");

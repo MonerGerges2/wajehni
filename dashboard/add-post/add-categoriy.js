@@ -110,6 +110,13 @@ function closeDeleteCategoryModal() {
   );
   deleteCategoryModal.hide();
 }
+function closeEditCategoryModal() {
+  let deleteCategoryModal = bootstrap.Modal.getInstance(
+    document.getElementById("editCategoryModal")
+  );
+  deleteCategoryModal.hide();
+}
+
 
 function editCategory() {
   let id = document.getElementById("editCategoryId").value;
@@ -119,19 +126,19 @@ function editCategory() {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
   };
-    
-    const data = {
-      name: name,
-    };
+
+  const data = {
+    name: name,
+  };
   axios
-    .patch(`${url}postCategories/${id}`, data , { headers: headers })
+    .patch(`${url}postCategories/${id}`, data, { headers: headers })
     .then((response) => {
-        let deleteCategoryModal = bootstrap.Modal.getInstance(
-            document.getElementById("editCategoryModal")
-          );
-          deleteCategoryModal.hide();
-        getCategories();
-        appendAlert("تم تعديل الفئة بنجاح", "success");
+      let deleteCategoryModal = bootstrap.Modal.getInstance(
+        document.getElementById("editCategoryModal")
+      );
+      deleteCategoryModal.hide();
+      getCategories();
+      appendAlert("تم تعديل الفئة بنجاح", "success");
     })
     .catch((error) => {
       console.error("Error fetching category:", error);
@@ -139,17 +146,17 @@ function editCategory() {
 }
 
 function appendAlert(message, type) {
-    const alertPlaceholder = document.getElementById("success-alert");
-    const wrapper = document.createElement("div");
-    wrapper.innerHTML = [
-      `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
-      `   <div>${message}</div>`,
-      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-      "</div>",
-    ].join("");
-    alertPlaceholder.append(wrapper);
-    setTimeout(() => {
-      const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
-      closeAlert.close();
-    }, 3000);
-  }
+  const alertPlaceholder = document.getElementById("success-alert");
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = [
+    `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    "</div>",
+  ].join("");
+  alertPlaceholder.append(wrapper);
+  setTimeout(() => {
+    const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
+    closeAlert.close();
+  }, 3000);
+}

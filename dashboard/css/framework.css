@@ -229,6 +229,9 @@
 .w-100 {
   width: 100px;
 }
+.mw {
+  max-width: 270px;
+}
 .w-fit {
   width: fit-content;
 }

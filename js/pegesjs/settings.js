@@ -234,6 +234,7 @@ async function imageUpload() {
         headers,
       });
       img = response.data.result;
+      localStorage.setItem("img", JSON.stringify(img));
     } else {
       appendAlert("صيغة الصورة غير صحيحة", "danger");
       return; // Exit function if invalid file format
