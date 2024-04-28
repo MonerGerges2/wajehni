@@ -39,20 +39,21 @@ getPostsData();
 function getComments() {
   let commentsContainer = document.getElementById("commentsContainer");
 
-
   axios
     .get(`${urlComents}ratings?post_id=${getID}`)
     .then((Response) => {
       let comments = Response.data.data.data;
-
-      console.log(comments);
+      if (comments.length === 0) {
+        commentsContainer.innerHTML = `<h3> لا يوجد تعليقات... </h3>`;
+        return;
+      }
       for (comment of comments) {
         let starsContainer = "";
-       let rate = comment.star_rating;
-        for(let i = 0 ; i < rate ; i++){
+        let rate = comment.star_rating;
+        for (let i = 0; i < rate; i++) {
           starsContainer += '<i class="fa-solid fa-star checked"></i>';
         }
-        for(let i = 0 ; i < 5 - rate ; i++){
+        for (let i = 0; i < 5 - rate; i++) {
           starsContainer += '<i class="fa-regular fa-star"></i>';
         }
         commentsContainer.innerHTML += `
@@ -83,21 +84,21 @@ function getComments() {
 getComments();
 
 function addRatingCounter() {
-let stars = document.querySelectorAll(".rating input");
-stars = Array.from(stars).reverse();
-stars.forEach((star) => {
-  star.addEventListener("click", function () {
-    // Uncheck all stars
-    stars.forEach((s) => (s.checked = false));
+  let stars = document.querySelectorAll(".rating input");
+  stars = Array.from(stars).reverse();
+  stars.forEach((star) => {
+    star.addEventListener("click", function () {
+      // Uncheck all stars
+      stars.forEach((s) => (s.checked = false));
 
-    // Check this star and all stars to its left
-    let clickedIndex = Array.from(stars).indexOf(this);
-    counter = clickedIndex + 1;
-    for (let i = 0; i <= clickedIndex; i++) {
-      stars[i].checked = true;
-    }
+      // Check this star and all stars to its left
+      let clickedIndex = Array.from(stars).indexOf(this);
+      counter = clickedIndex + 1;
+      for (let i = 0; i <= clickedIndex; i++) {
+        stars[i].checked = true;
+      }
+    });
   });
-});
 }
 addRatingCounter();
 
@@ -122,17 +123,18 @@ function addRating() {
     appendAlert("عليك وضع تقييم اولا", "danger");
     return;
   }
-  axios.post(`${url}ratings`, body ,{headers: headers }).then((response) => {
-    location.reload();
-
-  }).catch((error) => {
-    console.error(error);
-  });
+  axios
+    .post(`${url}ratings`, body, { headers: headers })
+    .then((response) => {
+      location.reload();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 searchButton.addEventListener("click", function (event) {
   // Prevent the default action (page reload)
   event.preventDefault();
-
 });
 // alert function
 function appendAlert(message, type) {

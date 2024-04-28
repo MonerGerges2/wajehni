@@ -28,15 +28,22 @@ function getCategories() {
 
 getCategories();
 
+let postTitle = document.getElementById("Specialization");
+postTitle.innerHTML = `<option id="select1" class="optionn" selected disabled> حدد الشعبة اولا </option>`;
 function getPostsTitle(id) {
-  let postTitle = document.getElementById("Specialization");
   let select1 = document.getElementById("select1");
 
   axios
     .get(`${urlCat}posts?category_id=${id}`)
     .then((response) => {
       let Posts = response.data.data.data;
-      console.log(Posts);
+      postTitle.innerHTML = "";
+      postTitle.innerHTML = `<option id="select1" class="optionn" selected disabled> اختار تخصص </option>`;
+
+      if (Posts.length == 0) {
+        postTitle.innerHTML = `<option id="select1" class="optionn" selected disabled> لا يوجد تخصصات </option>`;
+        return;
+      }
       select1.innerHTML = "حدد التخصص";
       for (Post of Posts) {
         postTitle.innerHTML += `
