@@ -825,6 +825,11 @@ a {
   color: #ffffff;
 }
 
+.card {
+  min-height: 500px !important;
+  max-height: 500px !important;
+}
+
 .card .card-img-top {
   width: 100%;
   min-height: 250px !important;
@@ -1403,11 +1408,21 @@ a {
   color: #444444c9;
   margin-bottom: 20px;
 }
+.comment-form h3 {
+  margin-top: 20px;
+}
 .post-comments .comment img {
   border-radius: 50%;
   width: 40px;
-
   margin-right: 10px;
+}
+
+.form-group {
+  width: 40% !important;
+}
+
+.comment-form {
+  width: 100% !important;
 }
 .comment-form button {
   border: none;
@@ -1432,4 +1447,65 @@ a {
   border: 1px solid #ffffff;
   font-size: 16px;
   margin-bottom: 20px;
+}
+.comment span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #444444c9;
+  margin-bottom: 20px;
+}
+
+.rating {
+  margin-bottom: 10px;
+  border: none;
+  float: left;
+}
+
+.rating > label {
+  color: #ffffff;
+  float: right;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  content: "\f005";
+  display: inline-block;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #f79426;
+}
+
+.checked {
+  color: #f79426;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+  color: #fece31;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+}
+.comment-input {
+  border-radius: 10px;
+  outline: none;
+  height: 40px;
+  border: 1px solid #ffffff;
+  font-size: 16px;
+  margin-bottom: 10px;
 }

@@ -1042,6 +1042,10 @@ ul {
 }
 /* End Animation */
 /* start cards  */
+.card {
+  min-height: 500px !important;
+  max-height: 500px !important;
+}
 .card .card-img-top {
   width: 100%;
   min-height: 250px !important;

@@ -36,7 +36,7 @@
                     <li class="nav-item">
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="./literary.html"> مجالات تجاره </a>
+                        <a class="nav-link" href="./literary.html"> مجالات تجاره </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./Scientific.html"> مجالات حاسبات </a>
@@ -94,28 +94,30 @@
                             <div class="col-md-12">
                                 <h2> التعليقات </h2>
                                 <div id="commentsContainer" class="comments-container">
-                                    <div class="comment">
-                                        <div class="comment-user">
-                                            <img src="../imges/avatar.jpg" alt="user">
-                                            <p> احمد محمد </p>
-                                        </div>
-                                        <div class="comment-content">
-                                            <p>
-                                                انا احمد محمد طالب في كلية الهندسة قسم الحاسبات والمعلومات واحب اقول انه
-                                                المقال ده كان مفيد جدا ليا وشكرا ليكم
-                                            </p>
-                                        </div>
-                                    </div>
+                                 
                                 </div>
                                 <!-- Comment Form -->
                                 <div class="comment-form">
                                     <h3>أضف تعليقًا</h3>
-                                    <form action="#" method="post">
+                                    <form class="comment-form" action="#" method="post">
                                         <div class="form-group">
                                             <label for="comment">تعليقك:</label>
-                                            <textarea id="comment" name="comment" rows="4" required></textarea>
+                                            <textarea class="comment-input" id="comment" name="comment"
+                                                required></textarea>
                                         </div>
-                                        <button type="submit">إرسال</button>
+                                        <div class="rating">
+                                            <input type="radio" id="star5" name="rating" value="5" />
+                                            <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+                                            <input type="radio" id="star4" name="rating" value="4" />
+                                            <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+                                            <input type="radio" id="star3" name="rating" value="3" />
+                                            <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                                            <input type="radio" id="star2" name="rating" value="2" />
+                                            <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+                                            <input type="radio" id="star1" name="rating" value="1" />
+                                            <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+                                        </div>
+                                        <button id="searchButton" onclick="addRating()">إرسال</button>
                                     </form>
                                 </div>
                                 <!-- End of Comment Form -->

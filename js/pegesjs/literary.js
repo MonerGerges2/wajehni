@@ -26,7 +26,7 @@ function getPostsData() {
                 <img class="card-img-top" src="${post.image}" alt="Card image cap">
             </div>
             <div class="card-body">
-                <h5 class="card-title"> ${post.title} </h5>
+                <h5 class="card-title"> ${post.title < 50 ? post.title : post.title.slice(0, 20) + "..."} </h5>
                 <p class="card-text">
                     ${
                       post.description < 250 ? post.description : post.description.slice(0, 200) + "..."

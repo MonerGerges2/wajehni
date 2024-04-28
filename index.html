@@ -102,21 +102,19 @@
         <div class="form col-lg-5 col-sm-12">
           <p> الشعبه </p>
           <select id="division" class="form-select " aria-label="Default select example">
-            <option value="1">مجالات حاسبات</option>
-            <option value="2">مجالات تجاره</option>
-            <option value="3">مجالات عامة</option>
+            <option class="optionn" selected disabled> حدد الشعبه </option>
+
           </select>
         </div>
         <div class="form col-lg-5 col-sm-12">
           <p> التخصص </p>
           <select id="Specialization" class="form-select " aria-label="Default select example">
-            <option class="optionn" value="1">One</option>
-            <option class="optionn" value="2">Two</option>
-            <option class="optionn" value="3">Three</option>
+            <option id="select1" class="optionn" selected disabled> حدد شعبة اخري </option>
+
           </select>
         </div>
-        <button class="search-btn d-flex col-lg-2 col-sm-12"><a href="#" class="text-decoration-none text-dark "> ابحث
-            <i class="fa-solid fa-magnifying-glass me-2"></i></a></button>
+        <button id="searchBtn" class="search-btn d-flex col-lg-2 col-sm-12"><a href="#" class="text-decoration-none text-dark "> ابحث
+          <i class="fa-solid fa-magnifying-glass me-2"></i></a></button>
       </div>
     </div>
   </section>
@@ -403,6 +401,7 @@
     crossorigin="anonymous"></script>
   <script src="./js/axios.js"></script>
   <script src="./js/bootstrap.js"></script>
+  <script src="./js/pegesjs/home.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/wow.min.js"></script>
   <script>

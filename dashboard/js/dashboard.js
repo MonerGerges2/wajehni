@@ -39,11 +39,12 @@ function getPostsData() {
 
       let posts = response.data.data.data;
       for (post of posts) {
+        if (recent.childElementCount < 3) {
         recent.innerHTML += `<div class="news-row d-flex align-center mt-15">
         <img src="${post.image}" alt="" />
         <div class="info mr-10">
           <h3>${
-            post.title < 50 ? post.title : post.title.slice(0, 50) + "..."
+            post.title < 50 ? post.title : post.title.slice(0, 20) + "..."
           }</h3>
           <p class="m-0 fs-14 c-grey mw" >${
             post.description < 100
@@ -57,6 +58,7 @@ function getPostsData() {
         )}
         </div>
       </div>`;
+        }
       }
     })
     .catch((error) => {
