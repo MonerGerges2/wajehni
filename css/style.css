@@ -254,6 +254,7 @@ a {
 /* start landing style */
 .landing {
   max-height: 100vh;
+  min-height: 100vh;
 }
 
 .land1 {

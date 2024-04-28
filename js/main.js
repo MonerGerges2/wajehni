@@ -34,6 +34,7 @@ function loginBtn() {
       inst.hide();
       appendAlert("تم تسجيل الدخول بنجاح", "success");
       setipUi();
+      location.reload();
     })
     .catch((error) => {
       if (error) {
@@ -129,6 +130,7 @@ function logOut() {
   localStorage.removeItem("image");
   localStorage.removeItem("email");
 
+  location.reload();
   setipUi();
   closeSidbar();
   const inst = bootstrap.Modal.getInstance(modal);
