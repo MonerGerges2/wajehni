@@ -1,3 +1,13 @@
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "login.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();
+
 let url = "https://backend.waterleaksksa.com/api/";
 
 function getData() {
@@ -66,16 +76,6 @@ function getPostsData() {
     });
 }
 getPostsData();
-
-function checkAuthentication() {
-  // Check if token exists in local storage
-  const token = localStorage.getItem("token");
-  if (!token) {
-    // If token doesn't exist, redirect to login page or show an error message
-    window.location.href = "login.html"; // Redirect to the login page
-  }
-}
-checkAuthentication();
 
 function getUserdata() {
   let welcome = document.getElementById("welcome");

@@ -3,13 +3,6 @@ let counter = 0;
 let urlPosts = "https://backend.waterleaksksa.com/api/admin/posts/";
 let urlComents = "https://backend.waterleaksksa.com/api/";
 
-// loder
-window.addEventListener("load", function () {
-  let loader = document.getElementById("preloader");
-  loader.classList.add("noo");
-  document.body.style.overflow = "visible";
-});
-
 function getPostsData() {
   let getID = new URLSearchParams(window.location.search).get("id");
   let postsContainer = document.getElementById("postContent");
@@ -28,6 +21,12 @@ function getPostsData() {
       postsContainer.innerHTML = `
         ${Response.data.data.content}
         `;
+      // loder
+      window.addEventListener("load", function () {
+        let loader = document.getElementById("preloader");
+        loader.classList.add("noo");
+        document.body.style.overflow = "visible";
+      });
     })
     .catch((error) => {
       console.error(error);

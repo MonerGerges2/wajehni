@@ -1,3 +1,12 @@
+function checkAuthentication() {
+  // Check if token exists in local storage
+  const token = localStorage.getItem("token");
+  if (token) {
+    // If token doesn't exist, redirect to login page or show an error message
+    window.location.href = "dashboard.html"; // Redirect to the login page
+  }
+}
+checkAuthentication();
 const url = "https://backend.waterleaksksa.com/api/";
 
 // Login function
