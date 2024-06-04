@@ -137,7 +137,6 @@ function getPost() {
     .then((response) => {
       let post = response.data.data;
       getImage = post.image;
-        console.log(getImage);
       // Set the title, description, and content of the post
       document.getElementById("title").value = post.title;
       document.getElementById("description").value = post.description;
@@ -176,6 +175,12 @@ function getPost() {
 getPost();
 
 async function updatePost() {
+  let btnAdd = document.getElementById("btn-add");
+  btnAdd.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
   try {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -184,10 +189,13 @@ async function updatePost() {
     let description = document.getElementById("description").value;
     let content = tinymce.get("default").getContent();
     let category = document.getElementById("categories").value;
-    let newImage = await imageUpload() ? await imageUpload() : getImage.split("/").pop();
-    
+    let newImage = (await imageUpload())
+      ? await imageUpload()
+      : getImage.split("/").pop();
+
     if (!title || !description || !content || !category || !newImage) {
       appendAlert("الرجاء ملء جميع الحقول المطلوبة", "danger");
+      btnAdd.innerHTML = "تعديل المقال";
       throw new Error("Please fill out all required fields.");
     }
 
@@ -207,7 +215,7 @@ async function updatePost() {
     const response = await axios.patch(`${url}posts/${postId}`, formData, {
       headers: headers,
     });
-
+    btnAdd.innerHTML = "تعديل المقال";
     // Display success message to the user
     appendAlert("تم التعديل بنجاح", "success");
 
@@ -267,7 +275,9 @@ function getUserdata() {
   axios
     .get(`${urlImage}user`, { headers: headers })
     .then((response) => {
-      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+      avatar.src = response.data.data.image
+        ? response.data.data.image
+        : "../../imges/avatar.jpg";
     })
     .catch((error) => {
       console.error(error);

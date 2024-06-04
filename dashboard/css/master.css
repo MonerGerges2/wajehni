@@ -1176,6 +1176,7 @@ ul {
 .btn-add {
   padding: 5px 20px;
   border-radius: 5px;
+  min-height: 40px;
   border: none;
   font-size: 18px;
   margin-top: 40px;
@@ -1184,6 +1185,7 @@ ul {
   justify-content: center;
   max-width: 150px;
   transition: 0.4s all;
+  cursor: pointer;
 }
 .btn-add:hover {
   background-color: #6042da;
@@ -1249,4 +1251,8 @@ border-radius: 50%;
   position: fixed !important;
   bottom: 0 !important;
   left: 10px !important;
+}
+.card-img {
+  min-height: 250px !important;
+  max-height: 250px !important;
 }

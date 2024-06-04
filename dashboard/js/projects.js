@@ -3,6 +3,7 @@ let url = "https://backend.waterleaksksa.com/api/";
 function getData() {
   let pro = document.getElementById("projects");
   let noData = document.getElementById("noData");
+  let cardsPlaceholder = document.getElementById("cards-placeholder");
 
   let token = localStorage.getItem("token");
   const headers = {
@@ -13,6 +14,7 @@ function getData() {
   axios
     .get(`${url}admin/posts`, { headers: headers })
     .then((response) => {
+      cardsPlaceholder.innerHTML = "";
       let projects = response.data.data.data;
 
       if (projects.length === 0) {

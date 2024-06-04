@@ -1,303 +1,297 @@
-window.addEventListener("load", function () {
-  let loader = document.getElementById("preloader");
+window.addEventListener("load", () => {
+  handleLoader();
+  setupCloseModalListeners();
+  setipUi();
+  setipSetingUi();
+});
+
+const API_URL = "https://backend.waterleaksksa.com/api/";
+
+// Get data from local storage
+const getStrg = (key) => JSON.parse(localStorage.getItem(key));
+
+const handleLoader = () => {
+  const loader = document.getElementById("preloader");
   loader.classList.add("noo");
   document.body.style.overflow = "visible";
-});
-const url = "https://backend.waterleaksksa.com/api/";
+};
 
-// get data from local storage  ($param key)
-function getStrg(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
+const setupCloseModalListeners = () => {
+  const closeModalButtons = [
+    { buttonId: "closeBtn", modalId: "logoutModal" },
+    { buttonId: "closechangeNameModal", modalId: "changeNameModal" },
+    { buttonId: "closechangeEmailModal", modalId: "changeEmailModal" },
+    { buttonId: "closedeleteProfileModal", modalId: "deleteProfileModal" },
+    { buttonId: "closechangePassModal", modalId: "changePassModal" },
+  ];
 
-function setipUi() {
+  closeModalButtons.forEach(({ buttonId, modalId }) => {
+    document.getElementById(buttonId).addEventListener("click", () => {
+      bootstrap.Modal.getInstance(document.getElementById(modalId)).hide();
+    });
+  });
+};
+
+const setipUi = () => {
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
-  const image = getStrg("image");
-  let navSign = document.getElementById("nav-sign");
-  if (token == null) {
-    navSign.innerHTML = `
+  const image = getStrg("image") || "../../imges/avatar.jpg";
+  const navSign = document.getElementById("nav-sign");
+
+  navSign.innerHTML = token
+    ? `
+        <div class="user-header">
+          <img src="${image}" alt="user-image" width="40" height="40" class="img-profile">
+          <p class="user-name">${name}</p>
+        </div>
+        <div class="icon-btn">
+          <a onclick="acteveSidbar()" class="iconn"><i class="fa-solid fa-bars"></i></a>
+        </div>
+      `
+    : `
         <li class="nav-item">
           <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link log-in" href="#" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
+          <a class="nav-link log-in" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
         </li>
-      </ul>`;
-  } else {
-    navSign.innerHTML = `
-        <div class="user-header ">
-                    <img src="${image ? image : "../../imges/avatar.jpg"}"
-                     alt="user-image" width="40" height="40"  class="img-profile">
-                      <p class="user-name">${name}</p>
-                  </div>
-        <div class="icon-btn">
-        <a onclick="acteveSidbar()" class="iconn" href="#"> <i class="fa-solid fa-bars"></i> </a>
-                  </div>
-      </ul>`;
-  }
-}
+      `;
+};
 
-function setipSetingUi() {
-  let img = document.getElementById("profileimg");
-  let newimage = getStrg("image");
+const setipSetingUi = () => {
+  const img = document.getElementById("profileimg");
+  const newimage = getStrg("image") || "../../imges/avatar.jpg";
+
   img.innerHTML = `
-    <img width="150" height="150" class="img-profile" src="${
-      newimage ? newimage : "../../imges/avatar.jpg"
-    }"
-     alt="profaile image">
-    `;
-}
+    <img width="150" height="150" class="img-profile" src="${newimage}" alt="profile image">
+  `;
+};
 
-function acteveSidbar() {
-  let sidbar = document.getElementById("sidbar");
+const acteveSidbar = () => {
+  const sidbar = document.getElementById("sidbar");
   sidbar.classList.add("active");
-}
+};
 
-function closeSidbar() {
-  let sidbar = document.getElementById("sidbar");
+const closeSidbar = () => {
+  const sidbar = document.getElementById("sidbar");
   sidbar.classList.remove("active");
-}
+};
 
-// log out
-const modal = document.getElementById("logoutModal");
-const modalchange = document.getElementById("changeNameModal");
-const modalChangeEmail = document.getElementById("changeEmailModal");
-const deleteProfileModal = document.getElementById("deleteProfileModal");
-function logOut() {
-  localStorage.removeItem("token");
-  localStorage.removeItem("name");
-  localStorage.removeItem("image");
-  localStorage.removeItem("email");
+// Log out
+const logOut = () => {
+  localStorage.clear();
   setipUi();
   closeSidbar();
-  const inst = bootstrap.Modal.getInstance(modal);
-  inst.hide();
+  bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
   appendAlert("تم تسجيل الخروج بنجاح", "success");
   location.replace("../../index.html");
-}
-let closeBtn = document.getElementById("closeBtn");
-closeBtn.addEventListener("click", () => {
-  const inst = bootstrap.Modal.getInstance(modal);
-  inst.hide();
-});
+};
 
-let closechangeNameModal = document.getElementById("closechangeNameModal");
-closechangeNameModal.addEventListener("click", () => {
-  const inst = bootstrap.Modal.getInstance(modalchange);
-  inst.hide();
-});
+const changeName = () => {
+  const token = localStorage.getItem("token");
+  const email = localStorage.getItem("email");
+  const image = localStorage.getItem("image").split("/").pop();
+  const newName = document.getElementById("change-name").value;
 
-function changeName() {
-  let token = localStorage.getItem("token");
-  let email = localStorage.getItem("email");
-  let image = localStorage.getItem("image");
-  let newName = document.getElementById("change-name").value;
-  const prams = {
-    full_name: newName,
-    email: email,
-    image: image,
-  };
-
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  };
   if (newName.length < 3) {
     appendAlert("الاسم غير صحيح", "danger");
-  } else {
-    axios
-      .patch(`${url}user/update`, prams, { headers: headers })
-      .then((response) => {
-        localStorage.removeItem("name");
-        localStorage.setItem("name", response.data.data.full_name);
-        setipUi();
-        const inst = bootstrap.Modal.getInstance(modalchange);
-        inst.hide();
-        appendAlert("تم تغيير الاسم بنجاح", "success");
-      })
-      .catch((error) => {
-        if (error.response.status == 400) {
-          appendAlert("يرجي التاكد من ادخال اسم صحيح", "danger");
-        }
-      });
+    return;
   }
-}
 
-let closechangeEmailModal = document.getElementById("closechangeEmailModal");
-closechangeEmailModal.addEventListener("click", () => {
-  const inst = bootstrap.Modal.getInstance(modalChangeEmail);
-  inst.hide();
-});
-
-function changeEmail() {
-  let token = localStorage.getItem("token");
-  let name = localStorage.getItem("name");
-  let image = localStorage.getItem("image");
-  let newEmail = document.getElementById("change-email").value;
-  const prams = {
-    full_name: name,
-    email: newEmail,
-    image: image,
-  };
+  const params = { full_name: newName, email, image };
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
   };
+
   axios
-    .patch(`${url}user/update`, prams, { headers: headers })
+    .patch(`${API_URL}user/update`, params, { headers })
     .then((response) => {
-      localStorage.removeItem("email");
+      localStorage.setItem("name", response.data.data.full_name);
+      setipUi();
+      bootstrap.Modal.getInstance(
+        document.getElementById("changeNameModal")
+      ).hide();
+      appendAlert("تم تغيير الاسم بنجاح", "success");
+    })
+    .catch((error) => {
+      if (error.response.status === 400) {
+        appendAlert("يرجي التاكد من ادخال اسم صحيح", "danger");
+      }
+    });
+};
+
+const changeEmail = () => {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+  const image = localStorage.getItem("image").split("/").pop();
+  const newEmail = document.getElementById("change-email").value;
+  const params = { full_name: name, email: newEmail, image };
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+
+  axios
+    .patch(`${API_URL}user/update`, params, { headers })
+    .then((response) => {
       localStorage.setItem("email", response.data.data.email);
-      const inst = bootstrap.Modal.getInstance(modalChangeEmail);
-      inst.hide();
+      bootstrap.Modal.getInstance(
+        document.getElementById("changeEmailModal")
+      ).hide();
       appendAlert("تم تغيير البريد الالكتروني بنجاح", "success");
     })
     .catch((error) => {
-      if (
-        error.response.status == 400 &&
-        error.response.data.message == "The email has already been taken."
-      ) {
-        appendAlert("البريد الالكتروني مستخدم", "danger");
-      } else if (error.response.status == 400) {
-        appendAlert("تأكد من صحة البريد الالكتروني", "danger");
-        console.error(error);
+      if (error.response.status === 400) {
+        const message =
+          error.response.data.message === "The email has already been taken."
+            ? "البريد الالكتروني مستخدم"
+            : "تأكد من صحة البريد الالكتروني";
+        appendAlert(message, "danger");
       }
     });
-}
+};
 
-let closedeleteProfileModal = document.getElementById("closedeleteProfileModal");
-closedeleteProfileModal.addEventListener("click", () => {
-  const inst = bootstrap.Modal.getInstance(deleteProfileModal);
-  inst.hide();
-});
-
-function deleteProfile() {
-  let token = localStorage.getItem("token");
+const deleteProfile = () => {
+  const token = localStorage.getItem("token");
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
   };
+
   axios
-    .delete(`${url}delete`, { headers: headers })
-    .then((response) => {
-      console.log(response);
-      localStorage.removeItem("token");
-      localStorage.removeItem("name");
-      localStorage.removeItem("email");
-      localStorage.removeItem("image");
+    .delete(`${API_URL}delete`, { headers })
+    .then(() => {
+      localStorage.clear();
       appendAlert("تم حذف الحساب بنجاح", "success");
-      setInterval(() => {
+      setTimeout(() => {
         window.location.href = "../../index.html";
       }, 1000);
     })
     .catch((error) => {
       console.error(error);
     });
-}
+};
 
-// image upload function
-async function imageUpload() {
-  let imag = document.getElementById("changeProfaileImage");
-  if (!imag) {
-    console.error("Profile image input element not found.");
-    return; // Exit function if input element is not found
+const changePass = (btn) => {
+  const newPassword = document.getElementById("new-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+  const image = localStorage.getItem("image").split("/").pop();
+  const email = localStorage.getItem("email");
+
+  if (newPassword.length < 6) {
+    appendAlert("كلمة المرور يجب أن تكون أكبر من 6 حروف", "danger");
+    return;
   }
 
-  let image = imag.files[0];
+  if (newPassword !== confirmPassword) {
+    appendAlert("كلمة المرور غير متطابقة", "danger");
+    return;
+  }
+
+  const params = { full_name: name, password: newPassword, image, email };
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
+
+  btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span>`;
+
+  axios
+    .patch(`${API_URL}user/update`, params, { headers })
+    .then(() => {
+      btn.innerHTML = "تاكيد";
+      bootstrap.Modal.getInstance(
+        document.getElementById("changePassModal")
+      ).hide();
+      appendAlert("تم تغيير كلمة المرور بنجاح", "success");
+    })
+    .catch((error) => {
+      btn.innerHTML = "تاكيد";
+      appendAlert("حدث خطأ ما", "danger");
+      console.error(error);
+    });
+};
+
+// Image upload function
+const imageUpload = async () => {
+  const imageInput = document.getElementById("changeProfaileImage");
+
+  if (!imageInput) {
+    appendAlert("حدث خطأ ما", "danger");
+    return null;
+  }
+
+  const image = imageInput.files[0];
   if (!image) {
-    console.error("No image selected.");
-    return; // Exit function if no file is selected
+    appendAlert("لم يتم اختيار صورة", "danger");
+    return null;
   }
 
-  let img = "";
-
-  let extension = image.name.split(".").pop();
+  const validExtensions = ["png", "jpg", "jpeg"];
+  const extension = image.name.split(".").pop().toLowerCase();
+  if (!validExtensions.includes(extension)) {
+    appendAlert("صيغة الصورة غير صحيحة", "danger");
+    return null;
+  }
 
   const formData = new FormData();
   formData.append("file", image);
 
+  try {
+    const response = await axios.post(`${API_URL}fileService`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return response.data.result;
+  } catch (error) {
+    appendAlert("حدث خطأ ما أثناء تحميل الصورة", "danger");
+    console.error(error);
+    return null;
+  }
+};
+
+const imageChange = async () => {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+  const email = localStorage.getItem("email");
+  const newImage = await imageUpload();
+
+  if (!newImage) return;
+
+  const params = { full_name: name, email, image: newImage };
   const headers = {
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
   };
 
   try {
-    if (
-      extension === "png" ||
-      extension === "jpg" ||
-      extension === "jpeg" ||
-      extension === "PNG" ||
-      extension === "JPG" ||
-      extension === "JPEG"
-    ) {
-      const response = await axios.post(`${url}fileService`, formData, {
-        headers,
-      });
-      img = response.data.result;
-      localStorage.setItem("img", JSON.stringify(img));
-    } else {
-      appendAlert("صيغة الصورة غير صحيحة", "danger");
-      return; // Exit function if invalid file format
-    }
+    const response = await axios.patch(`${API_URL}user/update`, params, {
+      headers,
+    });
+    localStorage.setItem("image", JSON.stringify(response.data.data.image));
+    setipUi();
+    setipSetingUi();
+    appendAlert("تم تغيير الصورة الشخصية بنجاح", "success");
   } catch (error) {
-    console.error("Error uploading image:", error.message);
-    // Handle error appropriately
+    appendAlert("تأكد من صحة الصورة", "danger");
+    console.error(error);
   }
+};
 
-  return img;
-}
-
-async function imageChange() {
-  let token = localStorage.getItem("token");
-  let name = localStorage.getItem("name");
-  let email = localStorage.getItem("email");
-  let newImage = await imageUpload();
-
-  if (!newImage) {
-      return; // Exit function if no new image uploaded
-  }
-
-  const params = {
-      full_name: name,
-      email: email,
-      image: newImage,
-  };
-
-  const headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-  };
-
-  try {
-      const response = await axios.patch(`${url}user/update`, params, { headers: headers });
-      localStorage.removeItem("image");
-      localStorage.setItem("image", JSON.stringify(response.data.data.image));
-      setipUi();
-      setipSetingUi();
-      appendAlert("تم تغيير الصورة الشخصية بنجاح", "success");
-  } catch (error) {
-      if (error) {
-          appendAlert("تأكد من صحة الصورة", "danger");
-      }
-      console.error("Error changing profile image:", error.message);
-  }
-}
-
-function appendAlert(message, type) {
+const appendAlert = (message, type) => {
   const alertPlaceholder = document.getElementById("success-alert");
   const wrapper = document.createElement("div");
-  wrapper.innerHTML = [
-    `<div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    "</div>",
-  ].join("");
+  wrapper.innerHTML = `
+    <div class="alert tab-pane show fade alert-${type} alert-dismissible" role="alert">
+      <div>${message}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  `;
   alertPlaceholder.append(wrapper);
   setTimeout(() => {
     const closeAlert = bootstrap.Alert.getOrCreateInstance(".alert");
     closeAlert.close();
   }, 3000);
-}
-
-setipUi();
-setipSetingUi();
+};

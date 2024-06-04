@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
           <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link log-in" href="#" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
+          <a class="nav-link log-in" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
         </li>
       </ul>`;
     } else {
@@ -34,7 +34,7 @@ window.addEventListener("load", function () {
                       <p class="user-name">${name}</p>
                   </div>
         <div class="icon-btn">
-        <a onclick="acteveSidbar()" class="iconn" href="#"> <i class="fa-solid fa-bars"></i> </a>
+        <a onclick="acteveSidbar()" class="iconn"> <i class="fa-solid fa-bars"></i> </a>
                   </div>
       </ul>`;
     }

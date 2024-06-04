@@ -69,7 +69,7 @@ getPostCategories();
 async function imageUpload() {
   let imag = document.getElementById("image");
   if (!imag) {
-    console.error("Profile image input element not found.");
+    console.error("image input element not found.");
     return; // Exit function if input element is not found
   }
 
@@ -116,31 +116,40 @@ async function imageUpload() {
 }
 
 function previewImage(input) {
-  imageUpload()
-  const preview = document.getElementById('image-preview');
+  imageUpload();
+  const preview = document.getElementById("image-preview");
   const file = input.files[0];
 
   const reader = new FileReader();
   reader.onloadend = function () {
-      preview.src = reader.result;
-      preview.style.display = 'block'; // Show the preview image
-  }
+    preview.src = reader.result;
+    preview.style.display = "block"; // Show the preview image
+  };
 
   if (file) {
-      reader.readAsDataURL(file); // Read the image file as a data URL
+    reader.readAsDataURL(file); // Read the image file as a data URL
   } else {
-      preview.src = ''; // Clear the preview image if no file is selected
-      preview.style.display = 'none'; // Hide the preview image
+    preview.src = ""; // Clear the preview image if no file is selected
+    preview.style.display = "none"; // Hide the preview image
   }
 }
 
-async function addPost() {
+async function addPost(btn) {
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let content = tinymce.get("default").getContent();
   let category = document.getElementById("categories").value;
   let newImage = await imageUpload();
-
+  btn.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
+  if (!title || !description || !content || !category || !newImage) {
+    btn.innerHTML = "نشر المقال";
+    appendAlert("الرجاء ملئ جميع الحقول", "danger");
+    return;
+  }
   const formData = {
     title: title,
     description: description,
@@ -156,12 +165,14 @@ async function addPost() {
   axios
     .post(`${url}posts`, formData, { headers: headers })
     .then((response) => {
+      btn.innerHTML = "نشر المقال";
       appendAlert("تمت الاضافة بنجاح", "success");
       setTimeout(() => {
         window.location.href = "../projects.html";
       }, 1000);
     })
     .catch((error) => {
+      btn.innerHTML = "نشر المقال";
       appendAlert("حدث خطأ ما", "danger");
       console.error("Error adding post:", error.message);
     });
@@ -178,7 +189,9 @@ function getUserdata() {
   axios
     .get(`${urlImage}user`, { headers: headers })
     .then((response) => {
-      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+      avatar.src = response.data.data.image
+        ? response.data.data.image
+        : "../../imges/avatar.jpg";
     })
     .catch((error) => {
       console.error(error);
@@ -225,4 +238,3 @@ function appendAlert(message, type) {
     closeAlert.close();
   }, 3000);
 }
-

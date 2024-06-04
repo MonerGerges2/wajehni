@@ -49,9 +49,19 @@ function getCategories() {
 
 getCategories();
 
-function addCategory() {
+function addCategory(btn) {
   let categoryInput = document.getElementById("categoriyName");
   let token = localStorage.getItem("token");
+  btn.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
+  if (!categoryInput.value) {
+    btn.innerHTML = "اضافة";
+    appendAlert("الرجاء إدخال اسم الفئة", "danger");
+    return;
+  }
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -62,12 +72,14 @@ function addCategory() {
   axios
     .post(`${url}postCategories`, data, { headers: headers })
     .then((response) => {
-      console.log(response);
+      btn.innerHTML = "اضافة";
       appendAlert("تم اضافة الشعبة بنجاح", "success");
       getCategories();
     })
     .catch((error) => {
+      btn.innerHTML = "اضافة";
       console.error(error);
+      appendAlert("حدث خطأ أثناء إضافة الفئة. يرجى المحاولة مرة أخرى في وقت لاحق.", "danger");
     });
 }
 

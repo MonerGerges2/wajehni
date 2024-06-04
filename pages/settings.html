@@ -94,10 +94,10 @@
                             <button class="setting-email" id="setting-email" data-bs-toggle="modal" data-bs-target="#changeEmailModal"> تغير البريد الالكتروني </button>
                         </div>
                         <div class="profile-password">
-                            <button class="setting-password" id="setting-password"> تغير كلمة المرور </button>
+                            <button class="setting-password" id="setting-password" data-bs-toggle="modal" data-bs-target="#changePassModal"> تغير كلمة المرور </button>
                         </div>
                         <div class="profile-delete">
-                            <button class="setting-delete" id="setting-password" data-bs-toggle="modal" data-bs-target="#deleteProfileModal"> حذف الحساب </button>
+                            <button class="setting-delete" id="profile-delete" data-bs-toggle="modal" data-bs-target="#deleteProfileModal"> حذف الحساب </button>
                         </div>
                     </div>
                 </div>
@@ -230,6 +230,27 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closechangeEmailModal">لا</button>
                     <button type="button" class="btn btn-primary" onclick="changeEmail()">تغير البريد الالكتروني</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal name-modal log-out-modal tab-pane fade" id="changePassModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">تغيير الرمز السري</h5>
+                </div>
+                <div class="modal-body">
+                    <label for="new-password"> ادخل الرمز السري الجديد </label>
+                    <input class="form-control change-name" type="password" id="new-password">
+                    <label for="confirm-password">اعد ادخال الرمز السري الجديد </label>
+                    <input class="form-control change-name" type="password" id="confirm-password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closechangePassModal">لا</button>
+                    <button type="button" class="btn btn-primary" onclick="changePass(this)">تاكيد</button>
                 </div>
             </div>
         </div>
