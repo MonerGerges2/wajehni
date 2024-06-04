@@ -35,7 +35,7 @@ function getPostsData() {
                     }
                 </p>
             </div>
-            <a href="#" onclick="addPostId(${
+            <a onclick="addPostId(${
               post.id
             })" class="btn card-btn"> اقرا المزيد <span><i
                         class="fa-solid fa-arrow-right-long"></i></span></a>

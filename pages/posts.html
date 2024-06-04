@@ -86,7 +86,11 @@
         <div class="post-contanier position-relative">
             <div class="post-content row">
                 <div id="postContent" class="post-bg">
-
+                    <div id="spiner" style="display: flex; justify-content: center; padding: 10px;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="post-comments">
                     <div class="container">
@@ -94,7 +98,11 @@
                             <div class="col-md-12">
                                 <h2> التعليقات </h2>
                                 <div id="commentsContainer" class="comments-container">
-                                 
+                                    <div id="spiner" style="display: flex; justify-content: center; padding: 10px;">
+                                        <div class="spinner-border text-light" role="status">
+                                            <span class="sr-only">Loading...</span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Comment Form -->
                                 <div class="comment-form">
@@ -111,7 +119,8 @@
                                             <input type="radio" id="star4" name="rating" value="4" />
                                             <label class="star" for="star4" title="Great" aria-hidden="true"></label>
                                             <input type="radio" id="star3" name="rating" value="3" />
-                                            <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                                            <label class="star" for="star3" title="Very good"
+                                                aria-hidden="true"></label>
                                             <input type="radio" id="star2" name="rating" value="2" />
                                             <label class="star" for="star2" title="Good" aria-hidden="true"></label>
                                             <input type="radio" id="star1" name="rating" value="1" />
@@ -155,7 +164,7 @@
                                 title="اظهار الرمز"></i>
                         </div>
                         <div class="submit-container">
-                            <a onclick="loginBtn()" class="btn submit-btn"> تسجيل الدخول </a>
+                            <a onclick="loginBtn()" class="btn submit-btn" id="loadinBtn"> تسجيل الدخول </a>
                         </div>
                         <br>
                         <div class="new-user">

@@ -166,6 +166,7 @@ a {
 
 .log-in {
   color: #a3a3a3;
+  cursor: pointer;
 }
 
 .log-in:focus {
@@ -208,6 +209,7 @@ a {
 .icon-btn .iconn {
   color: #ffffff;
   transition: 0.5s all ease-in-out;
+  cursor: pointer;
 }
 
 .icon-btn .iconn:hover {

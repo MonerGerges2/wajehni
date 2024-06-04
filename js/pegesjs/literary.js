@@ -27,7 +27,7 @@ function getPostsData() {
                     }
                 </p>
             </div>
-            <a href="#" onclick="addPostId(${post.id})" class="btn card-btn"> اقرا المزيد <span><i
+            <a onclick="addPostId(${post.id})" class="btn card-btn"> اقرا المزيد <span><i
                         class="fa-solid fa-arrow-right-long"></i></span></a>
             </div> 
         </div>`;
@@ -69,47 +69,4 @@ function showPassword(passwordInputId, eyeIconId) {
 
   // Focus on password input
   passwordInput.focus();
-}
-// Login function
-function loginBtn() {
-  let emailInput = document.getElementById("log-in-email").value;
-  let passwordInput = document.getElementById("log-in-password").value;
-  let loadinBtn = document.getElementById("loadinBtn");
-
-  loadinBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span>`;
-  // Perform input validation
-  if (!emailInput || !passwordInput) {
-    appendAlert("يرجى إدخال البريد الإلكتروني وكلمة المرور", "danger");
-    loadinBtn.innerHTML = `تسجيل الدخول`;
-    return;
-  }
-
-  const params = {
-    email: emailInput,
-    password: passwordInput,
-  };
-  axios
-    .post(`${url}login`, params)
-    .then((Response) => {
-      loadinBtn.innerHTML = `تسجيل الدخول`;
-      localStorage.setItem("token", Response.data.result.accessToken);
-      localStorage.setItem("name", Response.data.result.full_name);
-      localStorage.setItem("image", JSON.stringify(Response.data.result.image));
-      localStorage.setItem("email", Response.data.result.email);
-
-      const modal = document.getElementById("logInModal");
-      const inst = bootstrap.Modal.getInstance(modal);
-      inst.hide();
-      appendAlert("تم تسجيل الدخول بنجاح", "success");
-      setipUi();
-    })
-    .catch((error) => {
-      if (error) {
-        appendAlert("تاكد من صحة البريد الالكتروني وكلمة المرور", "danger");
-        loadinBtn.innerHTML = `تسجيل الدخول`;
-      } else {
-        appendAlert("حدث خطأ ما ، الرجاء المحاولة مرة أخرى", "danger");
-        loadinBtn.innerHTML = `تسجيل الدخول`;
-      }
-    });
 }

@@ -72,7 +72,7 @@ function setipUi() {
                     <p class="user-name">${name}</p>
                 </div>
       <div class="icon-btn">
-      <a onclick="acteveSidbar()" class="iconn" href="#"> <i class="fa-solid fa-bars"></i> </a>
+      <a onclick="acteveSidbar()" class="iconn"> <i class="fa-solid fa-bars"></i> </a>
                 </div>
     </ul>`;
   }
