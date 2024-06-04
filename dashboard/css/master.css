@@ -1262,3 +1262,12 @@ border-radius: 50%;
   min-height: 250px !important;
   max-height: 250px !important;
 }
+@media (max-width: 767px) {
+  .dis{
+    display: none;
+  }
+  .info h3 {
+    font-size: 10px !important;
+  }
+  
+}

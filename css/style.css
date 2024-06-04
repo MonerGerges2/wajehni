@@ -4,12 +4,15 @@
 ::-webkit-scrollbar {
   width: 15px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: white;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #246bfe;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: #6042da;
 }
@@ -91,6 +94,7 @@ a {
 .navbar {
   z-index: 9999;
 }
+
 .logo img {
   height: 6vw;
   width: 18vw;
@@ -252,6 +256,7 @@ a {
 .active {
   left: 0;
 }
+
 /* end nav style */
 /* start landing style */
 .landing {
@@ -274,8 +279,8 @@ a {
   margin-top: 30px;
 }
 
-.landing .landing-text > h1 {
-  font-size: 3.8vw !important;
+.landing .landing-text>h1 {
+  font-size: 3.8vw;
   font-weight: 700;
   max-width: 100%;
 }
@@ -304,12 +309,12 @@ a {
   margin-top: 20px;
 }
 
-.landing .landing-text2 > h2 {
+.landing .landing-text2>h2 {
   font-size: 1.4rem;
   font-weight: 600;
 }
 
-.landing .landing-text2 > p {
+.landing .landing-text2>p {
   font-size: 1.3vw;
 }
 
@@ -330,7 +335,7 @@ a {
   animation: move-to-up 3.5s linear infinite;
 }
 
-.angle-down-icon > i {
+.angle-down-icon>i {
   color: #246bfe;
   font-size: 1.2rem;
 }
@@ -346,6 +351,7 @@ a {
 }
 
 @keyframes move-to-up {
+
   0%,
   10%,
   20%,
@@ -381,7 +387,7 @@ a {
   max-width: 30%;
 }
 
-.form > p {
+.form>p {
   font-size: 1.3rem;
   font-weight: 700;
   color: #ffffff;
@@ -561,7 +567,7 @@ a {
   margin-left: 0;
 }
 
-.footer .row > * {
+.footer .row>* {
   padding-left: 0;
 }
 
@@ -667,19 +673,35 @@ a {
 /* end footer style */
 /* start media query */
 @media (max-width: 991px) {
-  .sidbar-menu{
+  .Login h1 {
+    font-size: 5vw !important;
+  }
+
+  .Login label {
+    font-size: 2.5vw !important;
+  }
+
+  .responsive-text {
+    font-size: 5vw !important;
+  }
+
+  .sidbar-menu {
     font-size: .6rem;
   }
+
   .sidbar-menu a {
     margin-bottom: 10px;
     padding: 5px;
   }
+
   .sidbar {
     width: 30%;
   }
+
   .settings-section {
     min-height: 100vh !important;
   }
+
   .navbar-collapse {
     position: fixed;
     top: 80px;
@@ -712,13 +734,29 @@ a {
     padding: 0;
   }
 
+  .user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .landing .landing-text>h1 {
+    font-size: 5vw !important;
+  }
+
   .landing-text2 {
     min-width: 90%;
     font-size: 0.7rem;
   }
 
-  .landing .landing-text2 > p {
+  .landing .landing-text2>p {
     font-size: 0.8rem;
+  }
+
+  .landing .landing-img {
+    width: 40%;
   }
 
   .angle-down-icon {
@@ -726,7 +764,7 @@ a {
     height: 2.5rem;
   }
 
-  .angle-down-icon > i {
+  .angle-down-icon>i {
     font-size: 0.7rem;
   }
 
@@ -750,7 +788,7 @@ a {
     padding: 0.2rem;
   }
 
-  .form > p {
+  .form>p {
     font-size: 0.6rem;
   }
 
@@ -784,6 +822,10 @@ a {
   .accordion-iamge {
     max-height: 12vw;
   }
+
+  .search-input {
+    max-width: 70%;
+  }
 }
 
 /* end media query */
@@ -806,7 +848,7 @@ a {
   text-decoration: none;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
   float: right;
   color: #151515;
   padding-left: 10px;
@@ -860,7 +902,8 @@ a {
   min-height: 250px !important;
   max-height: 250px !important;
 }
-.card-text-loder{
+
+.card-text-loder {
   padding: 0 10px;
 }
 
@@ -964,6 +1007,7 @@ a {
 }
 
 @keyframes raed-more {
+
   0%,
   100% {
     right: 40px;
@@ -1365,6 +1409,7 @@ a {
   align-items: center;
   min-height: 100vh;
 }
+
 .dashboard-login .Login p {
   font-size: 1rem;
   font-weight: 500;
@@ -1373,10 +1418,12 @@ a {
   text-align: center;
   padding-bottom: 20px !important;
 }
+
 .dashboard-login .Login h1 {
   margin-bottom: 0px !important;
   padding-bottom: 0px !important;
 }
+
 .post-content {
   display: flex;
   justify-content: center;
@@ -1384,6 +1431,7 @@ a {
   flex-direction: column;
   margin-top: 20px;
 }
+
 .post-bg {
   background-color: #f5f5f5;
   padding: 25px;
@@ -1392,34 +1440,40 @@ a {
   width: 95%;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
+
 .post-bg img {
   border-radius: 10px;
   max-width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .post-bg p {
   font-size: 1.2rem;
   font-weight: 500;
   color: #444444c9;
   margin-bottom: 20px;
 }
+
 .post-bg h1 {
   font-weight: 700;
   color: #246bfe;
   margin-bottom: 20px;
 }
+
 .post-bg h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: #246bfe;
   margin-bottom: 20px;
 }
+
 .post-comments h2 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .post-comments .comment {
   background-color: #ffffff;
   padding: 15px;
@@ -1428,15 +1482,18 @@ a {
   width: 100%;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
 }
+
 .post-comments .comment p {
   font-size: 1.2rem;
   font-weight: 500;
   color: #444444c9;
   margin-bottom: 20px;
 }
+
 .comment-form h3 {
   margin-top: 20px;
 }
+
 .post-comments .comment img {
   border-radius: 50%;
   width: 40px;
@@ -1450,6 +1507,7 @@ a {
 .comment-form {
   width: 100% !important;
 }
+
 .comment-form button {
   border: none;
   padding: 5px 20px;
@@ -1461,10 +1519,12 @@ a {
   margin-bottom: 10px;
   transition: all 0.3s ease-in-out;
 }
+
 .comment-form button:hover {
   background-color: #0254f8;
   color: #ffffff;
 }
+
 .comment-form textarea {
   width: 100%;
   border-radius: 10px;
@@ -1474,6 +1534,7 @@ a {
   font-size: 16px;
   margin-bottom: 20px;
 }
+
 .comment span {
   font-size: 0.8rem;
   font-weight: 500;
@@ -1487,12 +1548,12 @@ a {
   float: left;
 }
 
-.rating > label {
+.rating>label {
   color: #ffffff;
   float: right;
 }
 
-.rating > label:before {
+.rating>label:before {
   margin: 5px;
   font-size: 2em;
   font-family: FontAwesome;
@@ -1500,13 +1561,13 @@ a {
   display: inline-block;
 }
 
-.rating > input {
+.rating>input {
   display: none;
 }
 
-.rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
+.rating>input:checked~label,
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
   color: #f79426;
 }
 
@@ -1514,12 +1575,13 @@ a {
   color: #f79426;
 }
 
-.rating > input:checked + label:hover,
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
+.rating>input:checked+label:hover,
+.rating>input:checked~label:hover,
+.rating>label:hover~input:checked~label,
+.rating>input:checked~label:hover~label {
   color: #fece31;
 }
+
 .comment-form {
   display: flex;
   flex-direction: column;
@@ -1527,6 +1589,7 @@ a {
   justify-content: center;
   width: 100% !important;
 }
+
 .comment-input {
   border-radius: 10px;
   outline: none;

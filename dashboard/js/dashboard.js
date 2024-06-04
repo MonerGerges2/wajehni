@@ -79,7 +79,7 @@ function updatePostsData(data) {
               ? post.title
               : post.title.slice(0, 20) + "..."
           }</h3>
-          <p class="m-0 fs-14 c-grey mw">${
+          <p class="m-0 fs-14 c-grey mw dis">${
             post.description.length < 100
               ? post.description
               : post.description.slice(0, 100) + "..."
