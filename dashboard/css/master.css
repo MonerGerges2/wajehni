@@ -51,7 +51,7 @@ ul {
 }
 .sidebar > .logo > img {
   margin-bottom: 50px;
-  max-width: 200px;
+  max-width: 180px;
 }
 
 .sidebar ul li a {
@@ -82,6 +82,12 @@ ul {
   color: #ffffff;
 }
 @media (max-width: 767px) {
+  .Minu {
+    margin: 2.5px !important;
+  }
+  .sidebar > .logo > img{
+    max-width: 40px;
+  }
   .sidebar {
     width: 58px;
     padding: 10px;

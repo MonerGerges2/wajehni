@@ -2,156 +2,132 @@
 
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="../../imges/logo2.png">
-        <link rel="apple-touch-icon" href="../../imges/logo2.png">
-        <title>وجهني - لوحة التحكم</title>
-        <link rel="stylesheet" href="../css/all.min.css" />
-        <link rel="stylesheet" href="../../css/bootstrap.css" />
-        <link rel="stylesheet" href="../css/framework.css" />
-        <link rel="stylesheet" href="../css/master.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../imges/logo2.png">
+    <link rel="apple-touch-icon" href="../../imges/logo2.png">
+    <title>وجهني - لوحة التحكم</title>
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/framework.css" />
+    <link rel="stylesheet" href="../css/master.css" />
+</head>
 
-    <body>
-        <div class="page d-flex">
-            <div class="sidebar bg-white p-20 p-relative">
-                <a class="p-relative logo txt-c mt-0" href="#"> <img
-                        src="../../imges/logo.png" alt="logo"> </a>
-                <ul class="mt-0">
-                    <li>
-                        <a class="d-flex align-center fs-14  rad-6 p-10"
-                            href="../dashboard.html">
-                            <i class="fa-regular fa-chart-bar fa-fw"></i>
-                            <span>لوحة التحكم</span>
+<body>
+    <div class="page d-flex">
+        <div class="sidebar bg-white p-20 p-relative">
+            <a class="p-relative logo txt-c mt-0" href="#"> <img src="../../imges/logo.png" alt="logo"> </a>
+            <ul class="mt-0">
+                <li>
+                    <a class="d-flex align-center fs-14  rad-6 p-10" href="../dashboard.html">
+                        <i class="fa-regular fa-chart-bar fa-fw"></i>
+                        <span>لوحة التحكم</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="../settings.html">
+                        <i class="fa-solid fa-gear fa-fw"></i>
+                        <span>الاعدادات</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="../profile.html">
+                        <i class="fa-regular fa-user fa-fw"></i>
+                        <span>الملف الشخصي</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html">
+                        <i class="fa-solid fa-diagram-project fa-fw"></i>
+                        <span>المقالات</span>
+                    </a>
+                    <div class="m-2 Minu">
+                        <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10" href="../projects.html">
+                            <i class="fa-solid fa-pen"></i>
+                            <span>حذف او تعديل</span>
                         </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-center fs-14 c-black rad-6 p-10"
-                            href="../settings.html">
-                            <i class="fa-solid fa-gear fa-fw"></i>
-                            <span>الاعدادات</span>
+                        <a class="active c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
+                            href="add-post/add-post.html">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <span>اضافة مقال</span>
                         </a>
-                    </li>
-                    <li>
-                        <a class="d-flex align-center fs-14 c-black rad-6 p-10"
-                            href="../profile.html">
-                            <i class="fa-regular fa-user fa-fw"></i>
-                            <span>الملف الشخصي</span>
+                        <a class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
+                            href="./add-categoriy.html">
+                            <i class="fa-solid fa-table-list"></i>
+                            <span> الشعب </span>
                         </a>
-                    </li>
-                    <li>
-                        <a
-                            class="active d-flex align-center fs-14 c-black rad-6 p-10"
-                            href="projects.html">
-                            <i class="fa-solid fa-diagram-project fa-fw"></i>
-                            <span>المقالات</span>
-                        </a>
-                        <div class="m-2 Minu">
-                            <a
-                                class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
-                                href="../projects.html"><i
-                                    class="fa-solid fa-arrow-left"></i>
-                                <span>حذف او تعديل مقال</span>
-                            </a>
-                            <a
-                                class="active c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
-                                href="add-post/add-post.html"><i
-                                    class="fa-solid fa-arrow-left"></i>
-                                <span>اضافة مقال</span>
-                            </a>
-                            <a
-                                class="c-white fs-13 d-flex align-center fs-14 c-black rad-6 p-10"
-                                href="./add-categoriy.html"><i
-                                    class="fa-solid fa-arrow-left"></i>
-                                <span> الشعب </span>
-                            </a>
-                        </div>
-
-                    </li>
-                    <li>
-                        <a class="d-flex align-center fs-14 c-black rad-6 p-10"
-                            href="../plans.html">
-                            <i class="fa-solid fa-star-half-stroke fa-fw"></i>
-                            <span>التقيمات</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="content w-full">
-                <!-- Start Head -->
-                <div class="head bg-white p-15 content-left">
-                    <div class="icons d-flex align-center">
-                        <button class="log-out" data-bs-toggle="modal"
-                            data-bs-target="#logoutModal" class="text-danger"><i
-                                class="fa-solid fa-right-from-bracket"></i></button>
-                        <img id="avatar" class="head-avatar"
-                            src="../imges/avatar.jpg" alt="avatar" />
                     </div>
-                </div>
-                <div id="success-alert" class="show fade"></div>
 
-                <div class="add-post p-20 bg-white rad-10 m-20">
-                    <h2 class="mt-0 mb-20">اضافة مقال جديد</h2>
-                    <form method="post" class="row">
-                        <div class="post-content col-lg-9">
-                            <textarea class="texter" name="textarea"
-                                id="default"></textarea>
-                        </div>
-                        <div class="col-lg-3 post-de">
-                            <input type="text" name="title" id="title"
-                                class="border-ccc p-10 rad-6 w-full mb-20 mt-10"
-                                placeholder="عنوان المقال" />
-                            <textarea type="text" name="description"
-                                id="description"
-                                class="border-ccc p-10 rad-6 w-full mb-20 mt-10"
-                                placeholder="وصف المقال"></textarea>
-                            <select class="form-control mb-4" id="categories">
-                                <option selected disabled> حدد الشعبه </option>
-                            </select>
-                            <input type="file" name="file" id="image"
-                                class="d-none post border-ccc p-10 rad-6 w-full mb-20 mt-10"
-                                accept="image/*"
-                                onchange="previewImage(this)" />
-                            <label class="post-img" for="image">الصوره الرمزيه<i
-                                    class="pe-3 fa-solid fa-image"
-                                    style="font-size: 20px;"></i></label>
-                            <img id="image-preview" class="img-fluid"
-                                style="display: none;" />
-                        </div>
-
-                        <a id="btn-add" onclick="addPost(this)"
-                            class="btn-add bg-blue c-white py">نشر المقال</a>
-                    </form>
+                </li>
+                <li>
+                    <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="../plans.html">
+                        <i class="fa-solid fa-star-half-stroke fa-fw"></i>
+                        <span>التقيمات</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content w-full">
+            <!-- Start Head -->
+            <div class="head bg-white p-15 content-left">
+                <div class="icons d-flex align-center">
+                    <button class="log-out" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"><i
+                            class="fa-solid fa-right-from-bracket"></i></button>
+                    <img id="avatar" class="head-avatar" src="../imges/avatar.jpg" alt="avatar" />
                 </div>
             </div>
-            <div class="modal log-out-modal tab-pane fade" id="logoutModal"
-                tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">تسجيل
-                                الخروج</h5>
-                        </div>
-                        <div class="modal-body">
-                            <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                data-dismiss="modal" id="closeBtn">لا</button>
-                            <button type="button" class="btn btn-danger"
-                                onclick="logOut()">تسجيل الخروج </button>
-                        </div>
+            <div id="success-alert" class="show fade"></div>
+
+            <div class="add-post p-20 bg-white rad-10 m-20">
+                <h2 class="mt-0 mb-20">اضافة مقال جديد</h2>
+                <form method="post" class="row">
+                    <div class="post-content col-lg-9">
+                        <textarea class="texter" name="textarea" id="default"></textarea>
+                    </div>
+                    <div class="col-lg-3 post-de">
+                        <input type="text" name="title" id="title" class="border-ccc p-10 rad-6 w-full mb-20 mt-10"
+                            placeholder="عنوان المقال" />
+                        <textarea type="text" name="description" id="description"
+                            class="border-ccc p-10 rad-6 w-full mb-20 mt-10" placeholder="وصف المقال"></textarea>
+                        <select class="form-control mb-4" id="categories">
+                            <option selected disabled> حدد الشعبه </option>
+                        </select>
+                        <input type="file" name="file" id="image"
+                            class="d-none post border-ccc p-10 rad-6 w-full mb-20 mt-10" accept="image/*"
+                            onchange="previewImage(this)" />
+                        <label class="post-img" for="image">الصوره الرمزيه<i class="pe-3 fa-solid fa-image"
+                                style="font-size: 20px;"></i></label>
+                        <img id="image-preview" class="img-fluid" style="display: none;" />
+                    </div>
+
+                    <a id="btn-add" onclick="addPost(this)" class="btn-add bg-blue c-white py">نشر المقال</a>
+                </form>
+            </div>
+        </div>
+        <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">تسجيل
+                            الخروج</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+                        <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج </button>
                     </div>
                 </div>
             </div>
-            <script src="../../js/axios.js"></script>
-            <script src="tinymce/tinymce.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <script src="add-post.js"></script>
-        </body>
+        </div>
+        <script src="../../js/axios.js"></script>
+        <script src="tinymce/tinymce.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="add-post.js"></script>
+</body>
 
-    </html>
+</html>

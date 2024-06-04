@@ -88,6 +88,9 @@ a {
 
 /* end loder */
 /* start nav style */
+.navbar {
+  z-index: 9999;
+}
 .logo img {
   height: 6vw;
   width: 18vw;
@@ -95,7 +98,7 @@ a {
 
 .navbar-toggler {
   color: #ffffff;
-  border-color: #ffffff;
+  border: none;
 }
 
 .navbar-toggler:focus {
@@ -224,7 +227,7 @@ a {
   width: 20%;
   background-color: #ffffff;
   z-index: 999;
-  opacity: 0.5;
+  opacity: 0.8;
   transition: 0.5s all ease-in-out;
 }
 
@@ -238,6 +241,7 @@ a {
   font-size: 18px;
   margin: 15px 10px;
   align-items: center;
+  font-weight: bolder;
 }
 
 .sidbar-menu a {
@@ -248,10 +252,6 @@ a {
 .active {
   left: 0;
 }
-
-/* .user-header{
-  transform: translateY(-5px);
-} */
 /* end nav style */
 /* start landing style */
 .landing {
@@ -667,6 +667,19 @@ a {
 /* end footer style */
 /* start media query */
 @media (max-width: 991px) {
+  .sidbar-menu{
+    font-size: .6rem;
+  }
+  .sidbar-menu a {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  .sidbar {
+    width: 30%;
+  }
+  .settings-section {
+    min-height: 100vh !important;
+  }
   .navbar-collapse {
     position: fixed;
     top: 80px;
@@ -675,6 +688,8 @@ a {
     width: 80%;
     border-radius: 5px;
     box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.116);
+    z-index: 999 !important;
+    transition: 0.5s;
   }
 
   .link5::before {
@@ -905,7 +920,6 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 99;
 }
 
 .card-title {
@@ -1201,6 +1215,7 @@ a {
 }
 
 .profileimage .img-profile {
+  margin-top: 10px;
   border-radius: 50%;
   border: 4px solid #666;
   min-width: 150px;
@@ -1254,9 +1269,9 @@ a {
   justify-content: center;
   align-items: center;
   width: 400px;
-  height: 420px;
   background-color: #ffffff;
   border-radius: 10px;
+  max-width: 100% !important;
 }
 
 .set {

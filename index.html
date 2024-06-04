@@ -25,7 +25,7 @@
       <a class="navbar-brand logo py-0" href="#"> <img src="./imges/logo.png" alt="logo"> </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
         aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
+        <i onclick="toggleIcon(this)" class="fa-solid fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -69,7 +69,7 @@
   <!-- end sidbar menu -->
   <!-- end nav -->
 
-  
+
   <div id="success-alert" class="show fade"></div>
 
   <!-- start landing -->
@@ -112,8 +112,9 @@
 
           </select>
         </div>
-        <button id="searchBtn" class="search-btn d-flex col-lg-2 col-sm-12"><a class="text-decoration-none text-dark "> ابحث
-          <i class="fa-solid fa-magnifying-glass me-2"></i></a></button>
+        <button id="searchBtn" class="search-btn d-flex col-lg-2 col-sm-12"><a class="text-decoration-none text-dark ">
+            ابحث
+            <i class="fa-solid fa-magnifying-glass me-2"></i></a></button>
       </div>
     </div>
   </section>
@@ -349,7 +350,8 @@
             <div class="bassword-container mb-5 position-relative">
               <label> الرمز السري</label>
               <input id="log-in-password" class="bassword" type="password" placeholder=" ادخل الرمز السري">
-              <i class="fa-regular fa-eye show-password" id="show-log-in-password" onclick="showPassword('log-in-password','show-log-in-password')" title="اظهار الرمز"></i>
+              <i class="fa-regular fa-eye show-password" id="show-log-in-password"
+                onclick="showPassword('log-in-password','show-log-in-password')" title="اظهار الرمز"></i>
             </div>
             <div class="submit-container">
               <a id="loadinBtn" onclick="loginBtn()" class="btn submit-btn"> تسجيل الدخول </a>
@@ -364,27 +366,28 @@
     </div>
   </section>
   <!-- log out modal -->
-  <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
-                </div>
-                <div class="modal-body">
-                    <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
-                    <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج
-
-                    </button>
-                </div>
-            </div>
+  <div class="modal log-out-modal tab-pane fade" id="logoutModal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
         </div>
+        <div class="modal-body">
+          <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeBtn">لا</button>
+          <button type="button" class="btn btn-danger" onclick="logOut()">تسجيل الخروج
+
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
   <!-- end modals -->
   <!-- end footer -->
+  <script src="./js/togel.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
