@@ -61,15 +61,8 @@ function setipUi() {
   const name = localStorage.getItem("name");
   const image = getStrg("image");
   let navSign = document.getElementById("nav-sign");
-  if (token == null) {
-    navSign.innerHTML = `
-      <li class="nav-item">
-        <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link log-in" href="#" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
-      </li>
-    </ul>`;
+  if (!token) {
+    return;
   } else {
     navSign.innerHTML = `
       <div class="user-header ">
@@ -98,10 +91,9 @@ function closeSidbar() {
 }
 
 // show password
-function showPassword(passwordInputId, confirmPasswordInputId, eyeIconId) {
+function showPassword(passwordInputId, eyeIconId) {
   // Get input elements and eye icon
   let passwordInput = document.getElementById(passwordInputId);
-  let password2Input = document.getElementById(confirmPasswordInputId);
   let eye = document.getElementById(eyeIconId);
 
   // Check if input elements exist
@@ -111,11 +103,7 @@ function showPassword(passwordInputId, confirmPasswordInputId, eyeIconId) {
   }
 
   // Toggle password visibility and eye icon
-  passwordInput.type === "password" ? "text" : "password";
-  if (password2Input) {
-    password2Input.type =
-      password2Input.type === "password" ? "text" : "password";
-  }
+  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
 
   if (passwordInput.type === "password") {
     eye.classList.remove("fa-eye-slash");
