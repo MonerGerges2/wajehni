@@ -43,7 +43,6 @@ function getComments() {
     .then((Response) => {
       commentsContainer.innerHTML = "";
       let comments = Response.data.data;
-      console.log(comments);
       if (comments.length === 0) {
         commentsContainer.innerHTML = `<h3> لا يوجد تعليقات... </h3>`;
         return;
