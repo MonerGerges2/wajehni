@@ -2,7 +2,7 @@ function blogSearch() {
   const searchTerm = document.getElementById("searchbar").value.toLowerCase();
   const titleElements = document.getElementsByClassName("card-title");
   const cardBodyElements = document.getElementsByClassName("cards");
-  let foundResults = false; // Flag to track if any results are found
+  let foundResults = false;
 
   for (let i = 0; i < titleElements.length; i++) {
     const titleText = titleElements[i].innerHTML.toLowerCase();
@@ -10,31 +10,28 @@ function blogSearch() {
 
     if (titleText.includes(searchTerm)) {
       cardBodyElement.style.display = "block";
-      foundResults = true; // Set flag to true if result is found
+      foundResults = true;
     } else {
       cardBodyElement.style.display = "none";
     }
   }
 
-  // Display message if no results are found
+  // Display or hide the no-results message
+  const noResultsMessage = document.getElementById("no-results-message");
+  const searchContainer = document.getElementById("search-container");
+  
   if (!foundResults) {
-    const noResultsMessage = document.getElementById("no-results-message");
-    if (noResultsMessage) {
-      noResultsMessage.style.display = "block";
-    } else {
-      // If there's no element for displaying no results message, you can create one dynamically
-      const searchContainer = document.getElementById("search-container");
+    if (!noResultsMessage) {
       const messageElement = document.createElement("p");
       messageElement.id = "no-results-message";
       messageElement.textContent = "لا توجد نتائج لعرضها...";
       searchContainer.appendChild(messageElement);
+    } else {
+      noResultsMessage.style.display = "block";
     }
   } else {
-    // Hide no results message if results are found
-    const noResultsMessage = document.getElementById("no-results-message");
     if (noResultsMessage) {
       noResultsMessage.style.display = "none";
     }
   }
 }
-

@@ -39,9 +39,11 @@ function getComments() {
   let commentsContainer = document.getElementById("commentsContainer");
 
   axios
-    .get(`${urlComents}ratings?post_id=${getID}`)
+    .get(`${urlComents}front/ratings?post_id=${getID}`)
     .then((Response) => {
-      let comments = Response.data.data.data;
+      commentsContainer.innerHTML = "";
+      let comments = Response.data.data;
+      console.log(comments);
       if (comments.length === 0) {
         commentsContainer.innerHTML = `<h3> لا يوجد تعليقات... </h3>`;
         return;
@@ -124,8 +126,8 @@ function addRating() {
   }
   axios
     .post(`${url}ratings`, body, { headers: headers })
-    .then((response) => {
-      location.reload();
+    .then(() => {
+      getComments();
     })
     .catch((error) => {
       console.error(error);

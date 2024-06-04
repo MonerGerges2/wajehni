@@ -1244,3 +1244,9 @@ ul {
 .head-avatar{
 border-radius: 50%;
 }
+.show-alert {
+  z-index: 999 !important;
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 10px !important;
+}

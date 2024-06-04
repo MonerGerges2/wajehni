@@ -1,182 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../imges/logo2.png">
-  <link rel="apple-touch-icon" href="../imges/logo2.png">
-  <title>وجهني - لوحة التحكم</title>
-  <link rel="stylesheet" href="../css/bootstrap.css">
-  <link rel="stylesheet" href="css/all.min.css" />
-  <link rel="stylesheet" href="css/framework.css" />
-  <link rel="stylesheet" href="css/master.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../imges/logo2.png">
+    <link rel="apple-touch-icon" href="../imges/logo2.png">
+    <title>وجهني - لوحة التحكم</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/framework.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap"
+      rel="stylesheet" />
+  </head>
 
-<body>
-  <div class="page d-flex">
-    <div class="sidebar bg-white p-20 p-relative">
-      <a class="p-relative logo txt-c mt-0" href="#"> <img src="../imges/logo.png" alt="logo"> </a>
-      <ul>
-        <li>
-          <a class="d-flex align-center fs-14  rad-6 p-10" href="./dashboard.html">
-            <i class="fa-regular fa-chart-bar fa-fw"></i>
-            <span>لوحة التحكم</span>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="settings.html">
-            <i class="fa-solid fa-gear fa-fw"></i>
-            <span>الاعدادات</span>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="profile.html">
-            <i class="fa-regular fa-user fa-fw"></i>
-            <span>الملف الشخصي</span>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="projects.html">
-            <i class="fa-solid fa-diagram-project fa-fw"></i>
-            <span>المقالات</span>
-          </a>
-        </li>
-        <li>
-          <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
-            <i class="fa-regular fa-circle-user fa-fw"></i>
-            <span>المستخدمين</span>
-          </a>
-        </li>
-        <li>
-          <a class="active d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
-            <i class="fa-solid fa-star-half-stroke fa-fw"></i>
-            <span>التقيمات</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="content w-full">
-      <!-- Start Head -->
-      <div class="head bg-white p-15 between-flex">
-        <div class="search p-relative">
-          <input class="p-10" type="search" placeholder="ابحث عن مقال..." />
+  <body>
+    <div class="page d-flex">
+      <div class="sidebar bg-white p-20 p-relative">
+        <a class="p-relative logo txt-c mt-0" href="#"> <img
+            src="../imges/logo.png" alt="logo"> </a>
+        <ul>
+          <li>
+            <a class="d-flex align-center fs-14  rad-6 p-10"
+              href="./dashboard.html">
+              <i class="fa-regular fa-chart-bar fa-fw"></i>
+              <span>لوحة التحكم</span>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="settings.html">
+              <i class="fa-solid fa-gear fa-fw"></i>
+              <span>الاعدادات</span>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="profile.html">
+              <i class="fa-regular fa-user fa-fw"></i>
+              <span>الملف الشخصي</span>
+            </a>
+          </li>
+          <li>
+            <a class="d-flex align-center fs-14 c-black rad-6 p-10"
+              href="projects.html">
+              <i class="fa-solid fa-diagram-project fa-fw"></i>
+              <span>المقالات</span>
+            </a>
+          </li>
+          <li>
+            <a class="active d-flex align-center fs-14 c-black rad-6 p-10"
+              href="plans.html">
+              <i class="fa-solid fa-star-half-stroke fa-fw"></i>
+              <span>التقيمات</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="content w-full">
+        <!-- Start Head -->
+        <div class="head bg-white p-15 content-left">
+          <div class="icons d-flex align-center">
+            <button class="log-out" data-bs-toggle="modal"
+              data-bs-target="#logoutModal" class="text-danger"><i
+                class="fa-solid fa-right-from-bracket"></i></button>
+            <img id="avatar" class="head-avatar" src="../imges/avatar.jpg"
+              alt="avatar" />
+          </div>
         </div>
-        <div class="icons d-flex align-center">
-          <img src="../imges/avatar.jpg" alt="" />
+        <div id="success-alert" class="show show-alert fade"></div>
+
+        <!-- End Head -->
+        <h1 class="p-relative">التقيمات</h1>
+        <div class="projects p-20 bg-white rad-10 m-20">
+          <div class="responsive-table">
+            <table class="fs-15 w-full">
+              <thead>
+                <tr>
+                  <td>اسم المقال</td>
+                  <td>تاريخ التقييم</td>
+                  <td>محتوي التقييم</td>
+                  <td>عدد النجوم</td>
+                  <td>الحاله</td>
+                  <td>قبول</td>
+                  <td>رفض</td>
+                  <td>حذف</td>
+                </tr>
+              </thead>
+              <tbody id="rating-table">
+              </tbody>
+            </table>
+            <div id="spinner" style="display: flex; justify-content: center; padding: 10px;">
+              <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Projects Table -->
+      </div>
+      <div class="modal log-out-modal tab-pane fade" id="logoutModal"
+        tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">تسجيل الخروج</h5>
+            </div>
+            <div class="modal-body">
+              <p>هل انت متاكد من انك تريد تسجيل الخروج؟</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary"
+                data-dismiss="modal" id="closeBtn">لا</button>
+              <button type="button" class="btn btn-danger"
+                onclick="logOut()">تسجيل الخروج </button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- End Head -->
-      <h1 class="p-relative">التقيمات</h1>
-      <div class="projects p-20 bg-white rad-10 m-20">
-        <div class="responsive-table">
-          <table class="fs-15 w-full">
-            <thead>
-              <tr>
-                <td>الاسم</td>
-                <td>تاريخ التقييم</td>
-                <td>محتوي التقييم</td>
-                <td>الحاله</td>
-                <td>قبول</td>
-                <td>رفض</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Moner</td>
-                <td>10 May 2022</td>
-                <td>موقع رائع</td>
-                <td>
-                  <span class="label btn-shape bg-orange c-white">Pending</span>
-                </td>
-                <td>
-                  <a class="btn-shape bg-blue c-white" href="#">نشر</a>
-                </td>
-                <td>
-                  <a class="btn-shape bg-red c-white" href="#">حذف</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Moner</td>
-                <td>10 May 2022</td>
-                <td>موقع رائع</td>
-                <td>
-                  <span class="label btn-shape bg-orange c-white">Pending</span>
-                </td>
-                <td>
-                  <a class="btn-shape bg-blue c-white" href="#">نشر</a>
-                </td>
-                <td>
-                  <a class="btn-shape bg-red c-white" href="#">حذف</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Moner</td>
-                <td>10 May 2022</td>
-                <td>موقع رائع</td>
-                <td>
-                  <span class="label btn-shape bg-orange c-white">Pending</span>
-                </td>
-                <td>
-                  <a class="btn-shape bg-blue c-white" href="#">نشر</a>
-                </td>
-                <td>
-                  <a class="btn-shape bg-red c-white" href="#">حذف</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Moner</td>
-                <td>10 May 2022</td>
-                <td>موقع رائع</td>
-                <td>
-                  <span class="label btn-shape bg-orange c-white">Pending</span>
-                </td>
-                <td>
-                  <a class="btn-shape bg-blue c-white" href="#">نشر</a>
-                </td>
-                <td>
-                  <a class="btn-shape bg-red c-white" href="#">حذف</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Moner</td>
-                <td>10 May 2022</td>
-                <td>موقع رائع</td>
-                <td>
-                  <span class="label btn-shape bg-orange c-white">Pending</span>
-                </td>
-                <td>
-                  <a class="btn-shape bg-blue c-white" href="#">نشر</a>
-                </td>
-                <td>
-                  <a class="btn-shape bg-red c-white" href="#">حذف</a>
-                </td>
-              </tr>
-              <tr>
-                <td>Moner</td>
-                <td>10 May 2022</td>
-                <td>موقع رائع</td>
-                <td>
-                  <span class="label btn-shape bg-orange c-white">Pending</span>
-                </td>
-                <td>
-                  <a class="btn-shape bg-blue c-white" href="#">نشر</a>
-                </td>
-                <td>
-                  <a class="btn-shape bg-red c-white" href="#">حذف</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- End Projects Table -->
-    </div>
-</body>
-
+      <script src="../js/axios.js"></script>
+      <script src="./js/rating.js"></script>
+      <script src="../js/bootstrap.js"></script></body>
+  </body>
 </html>

@@ -13,9 +13,16 @@ const url = "https://backend.waterleaksksa.com/api/";
 function loginBtn() {
   let emailInput = document.getElementById("log-in-email").value;
   let passwordInput = document.getElementById("log-in-password").value;
+  let loginBtn = document.getElementById("loginBtn");
 
+  loginBtn.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
   // Perform input validation
   if (!emailInput || !passwordInput) {
+    loginBtn.innerHTML = "تسجيل الدخول"
     appendAlert("يرجى إدخال البريد الإلكتروني وكلمة المرور", "danger");
     return;
   }
@@ -27,6 +34,7 @@ function loginBtn() {
   axios
     .post(`${url}login`, params)
     .then((Response) => {
+      loginBtn.innerHTML = "تسجيل الدخول"
       localStorage.setItem("token", Response.data.result.accessToken);
       localStorage.setItem("name", Response.data.result.full_name);
       localStorage.setItem("image", JSON.stringify(Response.data.result.image));
@@ -38,6 +46,7 @@ function loginBtn() {
     .catch((error) => {
       if (error) {
         console.log(error);
+        loginBtn.innerHTML = "تسجيل الدخول"
         appendAlert("تاكد من صحة البريد الالكتروني وكلمة المرور", "danger");
       } else appendAlert("حدث خطأ ما ، الرجاء المحاولة مرة أخرى", "danger");
     });

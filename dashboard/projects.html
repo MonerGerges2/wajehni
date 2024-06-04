@@ -58,12 +58,6 @@
           </div>
         </li>
         <li>
-          <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="friends.html">
-            <i class="fa-regular fa-circle-user fa-fw"></i>
-            <span>المستخدمين</span>
-          </a>
-        </li>
-        <li>
           <a class="d-flex align-center fs-14 c-black rad-6 p-10" href="plans.html">
             <i class="fa-solid fa-star-half-stroke fa-fw"></i>
             <span>التقيمات</span>
@@ -75,7 +69,7 @@
       <!-- Start Head -->
       <div class="head bg-white p-15 between-flex">
         <div class="search p-relative">
-          <input class="p-10" type="search" placeholder="ابحث عن مقال..." />
+          <input id="searchbar" onkeyup="blogSearch()" class="p-10" type="search" placeholder="ابحث عن مقال..." />
         </div>
         <div class="icons d-flex align-center">
           <button class="log-out" data-bs-toggle="modal" data-bs-target="#logoutModal" class="text-danger"><i
@@ -91,6 +85,7 @@
       </div>
       <div id="projects" class="projects-page row m-20 gap-20">
         
+        <div class="txt-c c-blue fs-25 fw-bold" id="search-container"></div>
       </div>
       <div id="noData" class="no-data"></div>
     </div>
@@ -136,6 +131,7 @@
     <script src="../js/axios.js"></script>
     <script src="./js/projects.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/search-module.js"></script>
 </body>
 
 </html>

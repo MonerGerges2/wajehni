@@ -126,6 +126,9 @@
 .mb-25 {
   margin-bottom: 25px;
 }
+.text-center {
+  text-align: center;
+}
 /* End Padding + Margin */
 /* Start Color */
 .c-black {
@@ -252,6 +255,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.content-left{
+  display: flex;
+  align-items: center;
+  justify-content: left;
 }
 .btn-shape {
   padding: 4px 10px;

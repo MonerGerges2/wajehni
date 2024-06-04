@@ -2,22 +2,13 @@ let urlCat = "https://backend.waterleaksksa.com/api/admin/";
 
 function getCategories() {
   let division = document.getElementById("division");
-  let token = localStorage.getItem("token");
-  if (!token) {
-    division.innerHTML = `<option class="optionn" selected disabled> يجب عليك تسجيل الدخول اولا </option>`;
-    return;
-  }
-  let headers = {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
-  };
   axios
-    .get(`${urlCat}postCategories`, { headers: headers })
+    .get(`${urlCat}postCategories`)
     .then((response) => {
       let Categories = response.data.data.data;
       for (Categorie of Categories) {
         division.innerHTML += `
-            <option value="${Categorie.id}" >${Categorie.name}</option>
+            <option value="${Categorie.id}">${Categorie.name}</option>
             `;
       }
     })
@@ -35,7 +26,6 @@ getCategories();
 let postTitle = document.getElementById("Specialization");
 postTitle.innerHTML = `<option id="select1" class="optionn" selected disabled> حدد الشعبة اولا </option>`;
 function getPostsTitle(id) {
-  let select1 = document.getElementById("select1");
   axios
     .get(`${urlCat}posts?category_id=${id}`)
     .then((response) => {
@@ -47,7 +37,6 @@ function getPostsTitle(id) {
         postTitle.innerHTML = `<option id="select1" class="optionn" selected disabled> لا يوجد تخصصات </option>`;
         return;
       }
-      select1.innerHTML = "حدد التخصص";
       for (Post of Posts) {
         postTitle.innerHTML += `
             <option value="${Post.id}" >${Post.title}</option>
@@ -68,15 +57,5 @@ function getPostsTitle(id) {
 }
 
 function setUrl(id) {
-  window.location.href = `../../pages/posts.html?id=${id}`;
+  window.location.href = `./pages/posts.html?id=${id}`;
 }
-function Filteriton() {
-  let token = localStorage.getItem("token");
-  let search = document.getElementById("search");
-  if (!token) {
-    search.style.display = "none";
-  }else{
-    search.style.display = "block";
-  }
-}
-Filteriton()

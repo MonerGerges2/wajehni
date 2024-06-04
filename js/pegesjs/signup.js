@@ -89,10 +89,13 @@ function showPassword(passwordInputId, confirmPasswordInputId, eyeIconId) {
 function loginBtn() {
   let emailInput = document.getElementById("log-in-email").value;
   let passwordInput = document.getElementById("log-in-password").value;
+  let loadinBtn = document.getElementById("loadinBtn");
 
+  loadinBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span>`;
   // Perform input validation
   if (!emailInput || !passwordInput) {
     appendAlert("يرجى إدخال البريد الإلكتروني وكلمة المرور", "danger");
+    loadinBtn.innerHTML = `تسجيل الدخول`;
     return;
   }
 
@@ -103,29 +106,25 @@ function loginBtn() {
   axios
     .post(`${url}login`, params)
     .then((Response) => {
-      // set data in local storage
+      loadinBtn.innerHTML = `تسجيل الدخول`;
       localStorage.setItem("token", Response.data.result.accessToken);
       localStorage.setItem("name", Response.data.result.full_name);
       localStorage.setItem("image", JSON.stringify(Response.data.result.image));
       localStorage.setItem("email", Response.data.result.email);
 
-      // Hide login modal
       const modal = document.getElementById("logInModal");
       const inst = bootstrap.Modal.getInstance(modal);
       inst.hide();
-
       appendAlert("تم تسجيل الدخول بنجاح", "success");
-
-      // go to home page after 1 seconds
-      setInterval(() => {
-        window.open("../../index.html", "_self");
-      }, 1000);
+      setipUi();
     })
     .catch((error) => {
       if (error) {
         appendAlert("تاكد من صحة البريد الالكتروني وكلمة المرور", "danger");
+        loadinBtn.innerHTML = `تسجيل الدخول`;
       } else {
         appendAlert("حدث خطأ ما ، الرجاء المحاولة مرة أخرى", "danger");
+        loadinBtn.innerHTML = `تسجيل الدخول`;
       }
     });
 }
@@ -136,27 +135,33 @@ async function signUp() {
   let emailInput = document.getElementById("email").value;
   let passwordInput = document.getElementById("password").value;
   let confirmPasswordInput = document.getElementById("password2").value;
+  let loadinBtn = document.getElementById("signupBtn");
 
+  loadinBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span>`;
   // Perform input validation
   if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
+    loadinBtn.innerHTML = ` انشئ حساب جديد `;
     appendAlert("يرجى ملء جميع الحقول", "danger");
     return;
   }
 
   // Validate email format
   if (!isValidEmail(emailInput)) {
+    loadinBtn.innerHTML = ` انشئ حساب جديد `;
     appendAlert("الرجاء إدخال بريد إلكتروني صالح", "danger");
     return;
   }
 
   // Validate password length or complexity if needed
   if (passwordInput !== confirmPasswordInput) {
+    loadinBtn.innerHTML = ` انشئ حساب جديد `;
     appendAlert("كلمة المرور غير متطابقة", "danger");
     return;
   }
 
   // Validate password length
   if (passwordInput.length < 8) {
+    loadinBtn.innerHTML = ` انشئ حساب جديد `;
     appendAlert("كلمة المرور يجب أن تكون 8 احرف على الأقل", "danger");
     return;
   }
@@ -173,6 +178,7 @@ async function signUp() {
   axios
     .post(`${url}register`, params)
     .then((Response) => {
+      loadinBtn.innerHTML = ` انشئ حساب جديد `; 
       localStorage.setItem("token", Response.data.data.accessToken);
       localStorage.setItem("name", Response.data.data.full_name);
       localStorage.setItem("image", JSON.stringify(Response.data.data.image));
@@ -188,14 +194,18 @@ async function signUp() {
         error.response.status === 400 &&
         error.response.data.message == "The email has already been taken."
       ) {
+        loadinBtn.innerHTML = ` انشئ حساب جديد `;
         appendAlert("البريد الإلكتروني موجود مسبقًا", "danger");
       } else if (error.response.status === 400) {
         if (error.response.data.errors) {
+          loadinBtn.innerHTML = ` انشئ حساب جديد `;
           appendAlert("يرجى التاكد من ادخال جميع الحقول بشكل صحيح", "danger");
         } else if (error.response.data.message) {
+          loadinBtn.innerHTML = ` انشئ حساب جديد `;
           appendAlert(error.response.data.message, "danger");
         }
       } else {
+        loadinBtn.innerHTML = ` انشئ حساب جديد `;
         appendAlert("حدث خطأ ما، يرجى المحاولة مرة أخرى لاحقًا", "danger");
       }
       console.error(error.response.data.message);

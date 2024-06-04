@@ -1,17 +1,19 @@
 let urlPosts = "https://backend.waterleaksksa.com/api/";
 
-  function handlelInfiniteSceoll() {
-    const endOfpage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+  // function handlelInfiniteSceoll() {
+  //   const endOfpage = window.innerHeight + window.scrollY >= document.body.offsetHeight;
 
-    if (endOfpage) {
-      getPostsData();
-    }
-  }
+  //   if (endOfpage) {
+  //     getPostsData();
+  //   }
+  // }
 
 function getPostsData() {
   let cards = document.getElementById("cards");
+  let cardLode = document.getElementById("card-lode")
 
   axios.get(`${urlPosts}admin/posts?category_id=13`).then((response) => {
+    cardLode.innerHTML = ""
       const posts = response.data.data.data;
       if (posts.length == 0) {
         cards.innerHTML = `<div class="alert alert-danger text-center" role="alert">
@@ -23,7 +25,7 @@ function getPostsData() {
         <div class="cards col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-duration="2s">
             <div class="card">
             <div class="container-img position-relative">
-                <img class="card-img-top" src="${post.image}" alt="Card image cap">
+                <img loading="lazy" class="card-img-top" src="${post.image}" alt="Card image cap">
             </div>
             <div class="card-body">
                 <h5 class="card-title"> ${post.title < 50 ? post.title : post.title.slice(0, 20) + "..."} </h5>
@@ -47,5 +49,6 @@ function getPostsData() {
 }
 getPostsData();
 function addPostId(id) {
-  window.location.href = "../../pages/posts.html?id=" + id;
+  window.location.href = `../pages/posts.html?id=${id}`;
 }
+

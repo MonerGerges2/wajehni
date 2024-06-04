@@ -10,10 +10,13 @@ const url = "https://backend.waterleaksksa.com/api/";
 function loginBtn() {
   let emailInput = document.getElementById("log-in-email").value;
   let passwordInput = document.getElementById("log-in-password").value;
+  let loadinBtn = document.getElementById("loadinBtn");
 
+  loadinBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span>`;
   // Perform input validation
   if (!emailInput || !passwordInput) {
     appendAlert("يرجى إدخال البريد الإلكتروني وكلمة المرور", "danger");
+    loadinBtn.innerHTML = `تسجيل الدخول`;
     return;
   }
 
@@ -24,6 +27,7 @@ function loginBtn() {
   axios
     .post(`${url}login`, params)
     .then((Response) => {
+      loadinBtn.innerHTML = `تسجيل الدخول`;
       localStorage.setItem("token", Response.data.result.accessToken);
       localStorage.setItem("name", Response.data.result.full_name);
       localStorage.setItem("image", JSON.stringify(Response.data.result.image));
@@ -34,12 +38,15 @@ function loginBtn() {
       inst.hide();
       appendAlert("تم تسجيل الدخول بنجاح", "success");
       setipUi();
-      location.reload();
     })
     .catch((error) => {
       if (error) {
         appendAlert("تاكد من صحة البريد الالكتروني وكلمة المرور", "danger");
-      } else appendAlert("حدث خطأ ما ، الرجاء المحاولة مرة أخرى", "danger");
+        loadinBtn.innerHTML = `تسجيل الدخول`;
+      } else {
+        appendAlert("حدث خطأ ما ، الرجاء المحاولة مرة أخرى", "danger");
+        loadinBtn.innerHTML = `تسجيل الدخول`;
+      }
     });
 }
 
@@ -104,7 +111,7 @@ function showPassword(passwordInputId, confirmPasswordInputId, eyeIconId) {
   }
 
   // Toggle password visibility and eye icon
-  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.type === "password" ? "text" : "password";
   if (password2Input) {
     password2Input.type =
       password2Input.type === "password" ? "text" : "password";
