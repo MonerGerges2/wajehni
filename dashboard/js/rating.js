@@ -25,7 +25,7 @@ function getRatings() {
       if (ratings.length === 0) {
         table.innerHTML = `<tr><td class="text-center" colspan="8">لا يوجد تقييمات...</td></tr>`;
       }
-      for (rating of ratings) {
+      for (let rating of ratings) {
         table.innerHTML += `
          <tr>
            <td>${
@@ -42,17 +42,16 @@ function getRatings() {
            } c-white">${rating.status}</span>
            </td>
            <td>
-           <button id="activeRating" onClick="activeRating(${rating.id}, ${
-          rating.post_id
-        })" class="btn-shape b-none bg-blue c-white">نشر</button>
+           <button id="active-${rating.id}" onClick="activeRating(${rating.id}, ${rating.post_id})" 
+        class="btn-shape b-none bg-blue c-white">نشر</button>
          </td>
          <td>
-           <button id="inactiveRating" onClick="inactiveRating(${rating.id}, ${
+           <button id="inactive-${rating.id}" onClick="inactiveRating(${rating.id}, ${
           rating.post_id
         })" class="btn-shape b-none bg-orange c-white">اخفاء</button>
          </td>
          <td>
-           <button id="deleteRating" onClick="deleteRating(${
+           <button id="delete-${rating.id}" onClick="deleteRating(${
              rating.id
            })" class="btn-shape b-none bg-red c-white">حذف</button>
          </td>
@@ -67,12 +66,12 @@ getRatings();
 
 function activeRating(ratingId, postId) {
   let token = localStorage.getItem("token");
-  let activeRating = document.getElementById("activeRating");
-  activeRating.innerHTML = `
+  let element = document.getElementById(`active-${ratingId}`);
+  element.disabled = true;
+  element.innerHTML = `
   <div class="spinner-border spinner-border-sm text-light" role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-  `;
+    <span class="sr-only">Loading...</span>
+  </div>`;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -84,24 +83,26 @@ function activeRating(ratingId, postId) {
   axios
     .patch(`${url}ratings/${ratingId}`, bodyData, { headers })
     .then(() => {
-      activeRating.innerHTML = "نشر";
+      element.disabled = false;
+      element.innerHTML = "نشر";
       appendAlert("تم نشر التقييم بنجاح", "success");
       getRatings();
     })
     .catch((error) => {
-      activeRating.innerHTML = "نشر";
+      element.disabled = false;
+      element.innerHTML = "نشر";
       console.error(error);
     });
 }
 
 function inactiveRating(ratingId, postId) {
   let token = localStorage.getItem("token");
-  let inactiveRating = document.getElementById("inactiveRating");
-  inactiveRating.innerHTML = `
+  let element = document.getElementById(`inactive-${ratingId}`);
+  element.disabled = true;
+  element.innerHTML = `
   <div class="spinner-border spinner-border-sm text-light" role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-  `;
+    <span class="sr-only">Loading...</span>
+  </div>`;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -113,12 +114,14 @@ function inactiveRating(ratingId, postId) {
   axios
     .patch(`${url}ratings/${ratingId}`, bodyData, { headers })
     .then(() => {
-      inactiveRating.innerHTML = "اخفاء";
+      element.disabled = false;
+      element.innerHTML = "اخفاء";
       appendAlert("تم اخفاء التقييم بنجاح", "success");
       getRatings();
     })
     .catch((error) => {
-      inactiveRating.innerHTML = "اخفاء";
+      element.disabled = false;
+      element.innerHTML = "اخفاء";
       console.error(error);
     });
 }
@@ -141,12 +144,12 @@ function appendAlert(message, type) {
 
 function deleteRating(ratingId) {
   let token = localStorage.getItem("token");
-  let deleteRating = document.getElementById("deleteRating");
-  deleteRating.innerHTML = `
+  let element = document.getElementById(`delete-${ratingId}`);
+  element.disabled = true;
+  element.innerHTML = `
   <div class="spinner-border spinner-border-sm text-light" role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-  `;
+    <span class="sr-only">Loading...</span>
+  </div>`;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -154,12 +157,14 @@ function deleteRating(ratingId) {
   axios
     .delete(`${url}ratings/${ratingId}`, { headers })
     .then(() => {
-      deleteRating.innerHTML = "حذف";
+      element.disabled = false;
+      element.innerHTML = "حذف";
       appendAlert("تم حذف التقييم بنجاح", "success");
       getRatings();
     })
     .catch((error) => {
-      deleteRating.innerHTML = "حذف";
+      element.disabled = false;
+      element.innerHTML = "حذف";
       console.error(error);
     });
 }
@@ -196,5 +201,3 @@ function logOut() {
 document.getElementById("closeBtn").addEventListener("click", () => {
   bootstrap.Modal.getInstance(document.getElementById("logoutModal")).hide();
 });
-
-// Path: dashboard/js/setting.js
