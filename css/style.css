@@ -92,7 +92,7 @@ a {
 /* end loder */
 /* start nav style */
 .navbar {
-  z-index: 9999;
+  z-index: 999 !important;
 }
 
 .logo img {
@@ -683,6 +683,17 @@ a {
 
   .responsive-text {
     font-size: 5vw !important;
+  }
+
+  .user-name{
+    font-size: 2vw !important;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: row ;
   }
 
   .sidbar-menu {
@@ -1379,7 +1390,7 @@ a {
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  top: 0;
+  top: 10px;
   left: 24px;
   z-index: 9;
   background-color: #a3a3a381;
