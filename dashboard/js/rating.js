@@ -42,17 +42,17 @@ function getRatings() {
            } c-white">${rating.status}</span>
            </td>
            <td>
-           <button onClick="activeRating(${rating.id}, ${
+           <button id="activeRating" onClick="activeRating(${rating.id}, ${
           rating.post_id
         })" class="btn-shape b-none bg-blue c-white">نشر</button>
          </td>
          <td>
-           <button onClick="inactiveRating(${rating.id}, ${
+           <button id="inactiveRating" onClick="inactiveRating(${rating.id}, ${
           rating.post_id
         })" class="btn-shape b-none bg-orange c-white">اخفاء</button>
          </td>
          <td>
-           <button onClick="deleteRating(${
+           <button id="deleteRating" onClick="deleteRating(${
              rating.id
            })" class="btn-shape b-none bg-red c-white">حذف</button>
          </td>
@@ -67,6 +67,12 @@ getRatings();
 
 function activeRating(ratingId, postId) {
   let token = localStorage.getItem("token");
+  let activeRating = document.getElementById("activeRating");
+  activeRating.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -78,16 +84,24 @@ function activeRating(ratingId, postId) {
   axios
     .patch(`${url}ratings/${ratingId}`, bodyData, { headers })
     .then(() => {
+      activeRating.innerHTML = "نشر";
       appendAlert("تم نشر التقييم بنجاح", "success");
       getRatings();
     })
     .catch((error) => {
+      activeRating.innerHTML = "نشر";
       console.error(error);
     });
 }
 
 function inactiveRating(ratingId, postId) {
   let token = localStorage.getItem("token");
+  let inactiveRating = document.getElementById("inactiveRating");
+  inactiveRating.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -99,10 +113,12 @@ function inactiveRating(ratingId, postId) {
   axios
     .patch(`${url}ratings/${ratingId}`, bodyData, { headers })
     .then(() => {
+      inactiveRating.innerHTML = "اخفاء";
       appendAlert("تم اخفاء التقييم بنجاح", "success");
       getRatings();
     })
     .catch((error) => {
+      inactiveRating.innerHTML = "اخفاء";
       console.error(error);
     });
 }
@@ -125,6 +141,12 @@ function appendAlert(message, type) {
 
 function deleteRating(ratingId) {
   let token = localStorage.getItem("token");
+  let deleteRating = document.getElementById("deleteRating");
+  deleteRating.innerHTML = `
+  <div class="spinner-border spinner-border-sm text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+  `;
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${token}`,
@@ -132,10 +154,12 @@ function deleteRating(ratingId) {
   axios
     .delete(`${url}ratings/${ratingId}`, { headers })
     .then(() => {
+      deleteRating.innerHTML = "حذف";
       appendAlert("تم حذف التقييم بنجاح", "success");
       getRatings();
     })
     .catch((error) => {
+      deleteRating.innerHTML = "حذف";
       console.error(error);
     });
 }

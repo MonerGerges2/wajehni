@@ -1273,5 +1273,7 @@ border-radius: 50%;
     width: 25% !important;
     font-size: 10px !important;
   }
-  
+  .btn2 {
+    font-size: 10px !important;
+  }
 }

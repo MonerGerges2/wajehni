@@ -32,8 +32,8 @@ function getCategories() {
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <span class="badge bg-primary rounded-pill">${category.name}</span>
             <div>
-                <button onclick="getID(${category.id})" data-bs-toggle="modal" data-bs-target="#editCategoryModal" class="btn btn-primary" id="edit-category">تعديل</button>
-                <button onclick="getID(${category.id})" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal" class="btn btn-danger me-2" id="delete-category">حذف</button>
+                <button onclick="getID(${category.id})" data-bs-toggle="modal" data-bs-target="#editCategoryModal" class="btn btn2 btn-primary" id="edit-category">تعديل</button>
+                <button onclick="getID(${category.id})" data-bs-toggle="modal" data-bs-target="#deleteCategoryModal" class="btn btn2 btn-danger me-2" id="delete-category">حذف</button>
             </div>
         </li>
                 `;
