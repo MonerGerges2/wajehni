@@ -84,20 +84,25 @@
                             <div id="profileimg">
                             </div>
                             <input type="file" id="changeProfaileImage" class="d-none" oninput="imageChange()">
-                            <label class="change-image" for="changeProfaileImage"><i class="fa-solid fa-file-arrow-up"></i></label>
+                            <label class="change-image" for="changeProfaileImage"><i
+                                    class="fa-solid fa-file-arrow-up"></i></label>
                         </div>
                         <div class="profile-name">
-                            <button class="setting-name" id="setting-name" data-bs-toggle="modal" data-bs-target="#changeNameModal"> تغير الاسم </button>
+                            <button class="setting-name" id="setting-name" data-bs-toggle="modal"
+                                data-bs-target="#changeNameModal"> تغير الاسم </button>
                         </div>
                         <div class="profile-email">
 
-                            <button class="setting-email" id="setting-email" data-bs-toggle="modal" data-bs-target="#changeEmailModal"> تغير البريد الالكتروني </button>
+                            <button class="setting-email" id="setting-email" data-bs-toggle="modal"
+                                data-bs-target="#changeEmailModal"> تغير البريد الالكتروني </button>
                         </div>
                         <div class="profile-password">
-                            <button class="setting-password" id="setting-password" data-bs-toggle="modal" data-bs-target="#changePassModal"> تغير كلمة المرور </button>
+                            <button class="setting-password" id="setting-password" data-bs-toggle="modal"
+                                data-bs-target="#changePassModal"> تغير كلمة المرور </button>
                         </div>
                         <div class="profile-delete">
-                            <button class="setting-delete" id="profile-delete" data-bs-toggle="modal" data-bs-target="#deleteProfileModal"> حذف الحساب </button>
+                            <button class="setting-delete" id="profile-delete" data-bs-toggle="modal"
+                                data-bs-target="#deleteProfileModal"> حذف الحساب </button>
                         </div>
                     </div>
                 </div>
@@ -210,7 +215,8 @@
                     <input class="form-control change-name" type="text" id="change-name">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closechangeNameModal">لا</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        id="closechangeNameModal">لا</button>
                     <button type="button" class="btn btn-primary" onclick="changeName()">تغير الاسم</button>
                 </div>
             </div>
@@ -228,8 +234,10 @@
                     <input class="form-control change-name" type="email" id="change-email">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closechangeEmailModal">لا</button>
-                    <button type="button" class="btn btn-primary" onclick="changeEmail()">تغير البريد الالكتروني</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        id="closechangeEmailModal">لا</button>
+                    <button type="button" class="btn btn-primary" onclick="changeEmail()">تغير البريد
+                        الالكتروني</button>
                 </div>
             </div>
         </div>
@@ -249,15 +257,16 @@
                     <input class="form-control change-name" type="password" id="confirm-password">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closechangePassModal">لا</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        id="closechangePassModal">لا</button>
                     <button type="button" class="btn btn-primary" onclick="changePass(this)">تاكيد</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal log-out-modal tab-pane fade" id="deleteProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal log-out-modal tab-pane fade" id="deleteProfileModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -267,7 +276,8 @@
                     <p>هل انت متاكد من انك تريد حذف الحساب؟</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closedeleteProfileModal">لا</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        id="closedeleteProfileModal">لا</button>
                     <button type="button" class="btn btn-danger" onclick="deleteProfile()">حذف الحساب
 
                     </button>

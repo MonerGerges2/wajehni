@@ -16,29 +16,22 @@ function setipUi() {
   const name = localStorage.getItem("name");
   const image = getStrg("image");
   let navSign = document.getElementById("nav-sign");
-  if (token == null) {
-    navSign.innerHTML = `
-        <li class="nav-item">
-          <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link log-in" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
-        </li>
-      </ul>`;
+  if (!token) {
+    return;
   } else {
     navSign.innerHTML = `
-      <div class="user-info">
-      <div class="user-header">
-            <img src="${
-              image ? image : "../imges/avatar.jpg"
-            }" alt="user-image" width="40" height="40"  class="img-profile">
-              <p class="user-name">${name}</p>
-      </div>
-  <div class="icon-btn">
-    <a onclick="acteveSidbar()" class="iconn"> <i class="fa-solid fa-bars"></i> </a>
-  </div>
-</div>
-`;
+    <div class="user-info d-flex">
+            <div class="user-header">
+                  <img src="${
+                    image ? image : "../imges/avatar.jpg"
+                  }" alt="user-image" width="40" height="40"  class="img-profile">
+                    <p class="user-name">${name}</p>
+            </div>
+        <div class="icon-btn">
+          <a onclick="acteveSidbar()" class="iconn"> <i class="fa-solid fa-bars"></i> </a>
+        </div>
+    </div>
+    `;
   }
 }
 

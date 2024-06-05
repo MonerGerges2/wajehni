@@ -6,6 +6,14 @@ window.addEventListener("load", function () {
 });
 const url = "https://backend.waterleaksksa.com/api/";
 
+function checkAuthentication() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    window.location.href = "../../index.html";
+  }
+}
+checkAuthentication();
+
 // image upload to server function
 async function imageUpload() {
   let imag = document.getElementById("profaile-image");
@@ -54,10 +62,9 @@ async function imageUpload() {
 }
 
 // show password
-function showPassword(passwordInputId, confirmPasswordInputId, eyeIconId) {
+function showPassword(passwordInputId, eyeIconId) {
   // Get input elements and eye icon
   let passwordInput = document.getElementById(passwordInputId);
-  let password2Input = document.getElementById(confirmPasswordInputId);
   let eye = document.getElementById(eyeIconId);
 
   // Check if input elements exist
@@ -68,10 +75,6 @@ function showPassword(passwordInputId, confirmPasswordInputId, eyeIconId) {
 
   // Toggle password visibility and eye icon
   passwordInput.type = passwordInput.type === "password" ? "text" : "password";
-  if (password2Input) {
-    password2Input.type =
-      password2Input.type === "password" ? "text" : "password";
-  }
 
   if (passwordInput.type === "password") {
     eye.classList.remove("fa-eye-slash");
@@ -106,6 +109,7 @@ function loginBtn() {
   axios
     .post(`${url}login`, params)
     .then((Response) => {
+      window.location.href = "../../index.html";
       loadinBtn.innerHTML = `تسجيل الدخول`;
       localStorage.setItem("token", Response.data.result.accessToken);
       localStorage.setItem("name", Response.data.result.full_name);

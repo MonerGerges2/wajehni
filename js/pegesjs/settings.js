@@ -32,15 +32,17 @@ const setupCloseModalListeners = () => {
   });
 };
 
-const setipUi = () => {
+// set ui using local storage function
+function setipUi() {
   const token = localStorage.getItem("token");
   const name = localStorage.getItem("name");
-  const image = getStrg("image") || "../../imges/avatar.jpg";
-  const navSign = document.getElementById("nav-sign");
-
-  navSign.innerHTML = token
-    ? `
-    <div class="user-info">
+  const image = getStrg("image");
+  let navSign = document.getElementById("nav-sign");
+  if (!token) {
+    return;
+  } else {
+    navSign.innerHTML = `
+    <div class="user-info d-flex">
             <div class="user-header">
                   <img src="${
                     image ? image : "../imges/avatar.jpg"
@@ -51,16 +53,9 @@ const setipUi = () => {
           <a onclick="acteveSidbar()" class="iconn"> <i class="fa-solid fa-bars"></i> </a>
         </div>
     </div>
-      `
-    : `
-        <li class="nav-item">
-          <a class="nav-link link5" href="./pages/signup.html">انشئ حساب</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link log-in" data-bs-toggle="modal" data-bs-target="#logInModal">تسجيل الدخول</a>
-        </li>
-      `;
-};
+    `;
+  }
+}
 
 const setipSetingUi = () => {
   const img = document.getElementById("profileimg");
