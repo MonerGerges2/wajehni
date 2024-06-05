@@ -169,7 +169,7 @@ function getUserdata() {
   axios
     .get(`${url2}user`, { headers: headers })
     .then((response) => {
-      avatar.src = response.data.data.image ? response.data.data.image : "../../imges/avatar.jpg";      
+      avatar.src = response.data.data.image || "../../imges/avatar.jpg";      
     })
     .catch((error) => {
       console.error(error);

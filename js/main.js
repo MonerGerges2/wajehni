@@ -11,7 +11,7 @@ function loginBtn() {
   let emailInput = document.getElementById("log-in-email").value;
   let passwordInput = document.getElementById("log-in-password").value;
   let loadinBtn = document.getElementById("loadinBtn");
-
+  loadinBtn.disabled = true;
   loadinBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status"></span>`;
   // Perform input validation
   if (!emailInput || !passwordInput) {
@@ -42,9 +42,11 @@ function loginBtn() {
     .catch((error) => {
       if (error) {
         appendAlert("تاكد من صحة البريد الالكتروني وكلمة المرور", "danger");
+        loadinBtn.disabled = false;
         loadinBtn.innerHTML = `تسجيل الدخول`;
       } else {
         appendAlert("حدث خطأ ما ، الرجاء المحاولة مرة أخرى", "danger");
+        loadinBtn.disabled = false;
         loadinBtn.innerHTML = `تسجيل الدخول`;
       }
     });
