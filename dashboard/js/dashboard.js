@@ -54,7 +54,7 @@ function updateCategoryData(data) {
     categ.innerHTML += `
       <div class="items d-flex space-between pt-15 pb-15">
         <span>${category.name}</span>
-        <span class="bg-eee fs-13 btn-shape">${category.posts_count}</span>
+        <span class="bg-eee fs-13 btn-shape text-center">${category.posts_count}</span>
       </div>`;
   });
 
