@@ -1269,5 +1269,9 @@ border-radius: 50%;
   .info h3 {
     font-size: 10px !important;
   }
+  .sm-siz{
+    width: 25% !important;
+    font-size: 10px !important;
+  }
   
 }

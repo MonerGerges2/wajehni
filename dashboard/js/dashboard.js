@@ -85,7 +85,7 @@ function updatePostsData(data) {
               : post.description.slice(0, 100) + "..."
           }</p>
         </div>
-        <div class="btn-shape bg-eee fs-13 label">${post.created_at.slice(
+        <div class="btn-shape sm-siz bg-eee fs-13 label">${post.created_at.slice(
           0,
           10
         )}</div>
@@ -125,7 +125,7 @@ function updateUserData(data) {
 function updateRatingsData(data) {
   const ratingLength = document.getElementById("rating-length");
   const table = document.getElementById("rating-table");
-  const spinner = document.getElementById("spiner")
+  const spinner = document.getElementById("spiner");
   const ratings = data.data.data.slice(0, 10);
 
   spinner.innerHTML = "";
@@ -135,7 +135,11 @@ function updateRatingsData(data) {
     ratings.forEach((rating) => {
       table.innerHTML += `
         <tr>
-          <td>${rating.user.full_name}</td>
+          <td>${
+            rating.post.title.length < 15
+              ? rating.post.title
+              : rating.post.title.slice(0, 15) + "..."
+          }</td>
           <td>${rating.created_at.slice(0, 10)}</td>
           <td>${rating.comments || "لا يوجد محتوي..."}</td>
           <td>

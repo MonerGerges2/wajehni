@@ -673,6 +673,9 @@ a {
 /* end footer style */
 /* start media query */
 @media (max-width: 991px) {
+  .profile-container{
+    max-width: 100% !important;
+  }
   .Login h1 {
     font-size: 5vw !important;
   }
